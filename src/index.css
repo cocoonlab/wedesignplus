@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+
+  --color-surface: #faf9f7;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f3f1;
+  --color-surface-container-high: #e9e8e6;
+  --color-surface-container-highest: #e3e2e0;
+  
+  --color-primary: #715574;
+  --color-primary-container: #ffddff;
+  --color-on-primary-container: #7b5e7d;
+  
+  --color-tertiary: #1b6d24;
+  --color-tertiary-container: #a8fca1;
+  --color-on-tertiary-container: #27772c;
+
+  --color-outline-variant: #c7c5cc;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-stone-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, .serif-text {
+    @apply font-serif italic;
+  }
+}
+
+@layer utilities {
+  .asymmetric-header {
+    padding-left: 15%;
+  }
+  
+  .civic-gradient {
+    background: linear-gradient(135deg, #715574 0%, #7b5e7d 100%);
+  }
+}
