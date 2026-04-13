@@ -71,8 +71,9 @@ const Navbar = ({
         onClick={() => setPage('overview')}
         type="button"
       >
-        <BrandMark className="transition-transform duration-300 group-hover:scale-[1.03]" />
-        <span className="sr-only">WeDesign+</span>
+        <span className="font-sans text-xl font-bold tracking-tight text-primary transition-colors duration-300 group-hover:text-primary/85">
+          WeDesign+
+        </span>
       </button>
       <div className="hidden md:flex space-x-8">
         {NAV_PAGES.map((page) => (
