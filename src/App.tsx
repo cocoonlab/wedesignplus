@@ -23,6 +23,9 @@ import {
   getPageHref,
   getPageMetadata,
   PAGE_LABELS,
+  SITE_ALTERNATE_NAMES,
+  SITE_CREATOR,
+  SITE_KEYWORDS,
   SITE_NAME,
   SITE_ORIGIN,
   SOCIAL_IMAGE_URL,
@@ -239,7 +242,11 @@ function useSeo(page: Page) {
       'robots',
       'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
     );
-    upsertMetaTag('name', 'author', SITE_NAME);
+    upsertMetaTag('name', 'author', SITE_CREATOR);
+    upsertMetaTag('name', 'creator', SITE_CREATOR);
+    upsertMetaTag('name', 'publisher', SITE_NAME);
+    upsertMetaTag('name', 'application-name', SITE_NAME);
+    upsertMetaTag('name', 'keywords', metadata.keywords || SITE_KEYWORDS);
     upsertMetaTag('property', 'og:type', 'website');
     upsertMetaTag('property', 'og:site_name', SITE_NAME);
     upsertMetaTag('property', 'og:locale', 'en_CA');
@@ -263,20 +270,59 @@ function useSeo(page: Page) {
         '@type': 'Organization',
         '@id': `${SITE_ORIGIN}/#organization`,
         name: SITE_NAME,
+        alternateName: [...SITE_ALTERNATE_NAMES],
         url: `${SITE_ORIGIN}/`,
         description: siteDescription,
         email: `mailto:${CONTACT_EMAIL}`,
         logo: `${SITE_ORIGIN}/apple-touch-icon.png`,
+        founder: {
+          '@id': `${SITE_ORIGIN}/about#rashid-mushkani`,
+        },
+        keywords: SITE_KEYWORDS,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        '@id': `${SITE_ORIGIN}/about#rashid-mushkani`,
+        name: SITE_CREATOR,
+        url: `${SITE_ORIGIN}/about`,
+        jobTitle: 'Researcher and creator of WeDesign+',
+        description:
+          'Rashid Mushkani is the creator of WeDesign+, working at the intersection of urban design, public participation, and inclusive AI.',
+        worksFor: {
+          '@id': `${SITE_ORIGIN}/#organization`,
+        },
+        affiliation: [
+          {
+            '@type': 'CollegeOrUniversity',
+            name: 'Université de Montréal',
+          },
+          {
+            '@type': 'ResearchOrganization',
+            name: 'Mila – Quebec Artificial Intelligence Institute',
+          },
+        ],
+        knowsAbout: [
+          'Visual public consultation',
+          'Participatory urban design',
+          'Inclusive AI',
+          'Public-space research',
+        ],
       },
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         '@id': `${SITE_ORIGIN}/#website`,
         name: SITE_NAME,
+        alternateName: [...SITE_ALTERNATE_NAMES],
         url: `${SITE_ORIGIN}/`,
         description: siteDescription,
+        keywords: SITE_KEYWORDS,
         publisher: {
           '@id': `${SITE_ORIGIN}/#organization`,
+        },
+        creator: {
+          '@id': `${SITE_ORIGIN}/about#rashid-mushkani`,
         },
       },
       {
@@ -286,10 +332,19 @@ function useSeo(page: Page) {
         name: metadata.title,
         url: metadata.url,
         description: metadata.description,
+        keywords: metadata.keywords,
         isPartOf: {
           '@id': `${SITE_ORIGIN}/#website`,
         },
-        about: 'Visual civic consultation',
+        about: [
+          {
+            '@id': `${SITE_ORIGIN}/#organization`,
+          },
+          {
+            '@id': `${SITE_ORIGIN}/about#rashid-mushkani`,
+          },
+        ],
+        primaryImageOfPage: SOCIAL_IMAGE_URL,
         inLanguage: 'en',
       },
     ]);

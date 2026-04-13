@@ -1,7 +1,16 @@
 export type Page = 'overview' | 'pilot' | 'research' | 'about';
 
 export const SITE_NAME = 'WeDesign+';
-export const SITE_TITLE_SUFFIX = 'Visual Public Consultations';
+export const SITE_CREATOR = 'Rashid Mushkani';
+export const SITE_ALTERNATE_NAMES = [
+  'WeDesign',
+  'WeDesign+',
+  'wedesign',
+  'wedesign+',
+] as const;
+export const SITE_KEYWORDS =
+  'WeDesign+, WeDesign, wedesign, wedesign+, Rashid Mushkani, visual public consultation, civic consultation, participatory urban design, inclusive AI';
+export const SITE_TITLE_SUFFIX = `Visual Public Consultations by ${SITE_CREATOR}`;
 export const DEFAULT_SITE_URL = 'https://www.wedesign.plus';
 export const SITE_ORIGIN = normalizeOrigin(
   import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL,
@@ -35,28 +44,40 @@ const PAGE_DETAILS: Record<
   Page,
   {
     description: string;
+    keywords: string;
     shortTitle: string;
+    title?: string;
   }
 > = {
   overview: {
     shortTitle: 'Overview',
+    title: 'WeDesign+ by Rashid Mushkani | Visual Public Consultations',
     description:
-      'WeDesign+ helps communities align around civic design decisions through visual public consultation, rapid concept comparison, and participatory urban dialogue.',
+      'WeDesign+ by Rashid Mushkani helps communities align around civic design decisions through visual public consultation, rapid concept comparison, and participatory urban dialogue.',
+    keywords:
+      'WeDesign+, WeDesign, wedesign, wedesign+, Rashid Mushkani, visual public consultation, civic consultation, participatory urban design, inclusive AI',
   },
   pilot: {
     shortTitle: 'Pilot: Sainte-Marie',
     description:
       'Explore the Sainte-Marie pilot: a compressed civic consultation that helped Montreal residents compare live visual proposals and converge on a shared direction in two days.',
+    keywords:
+      'WeDesign+, WeDesign, Rashid Mushkani, Sainte-Marie pilot, Montreal civic consultation, participatory urban design, visual public consultation',
   },
   research: {
     shortTitle: 'Research',
     description:
       'Review the research foundation behind WeDesign+, including alignment datasets, participatory evaluation methods, and academic publications on inclusive civic design.',
+    keywords:
+      'WeDesign+, WeDesign, Rashid Mushkani, AI Alignment for Inclusion, AIAI, inclusive AI, public-space research, civic consultation research',
   },
   about: {
     shortTitle: 'About',
+    title: 'About WeDesign+ and Rashid Mushkani | WeDesign+',
     description:
-      'Learn how WeDesign+ emerged from AI Alignment for Inclusion, bringing together urban design, public participation, and responsible AI to support more inclusive public-space consultation.',
+      'Learn how WeDesign+ and Rashid Mushkani build on AI Alignment for Inclusion (AIAI), bringing together urban design, public participation, and responsible AI to support more inclusive public-space consultation.',
+    keywords:
+      'Rashid Mushkani, WeDesign+, WeDesign, wedesign, AIAI, AI Alignment for Inclusion, public participation, responsible AI, inclusive public space',
   },
 };
 
@@ -78,9 +99,10 @@ export function getPageMetadata(page: Page) {
     ...details,
     path,
     title:
-      page === 'overview'
+      details.title ||
+      (page === 'overview'
         ? `${SITE_NAME} | ${SITE_TITLE_SUFFIX}`
-        : `${details.shortTitle} | ${SITE_NAME}`,
+        : `${details.shortTitle} | ${SITE_NAME}`),
     url: `${SITE_ORIGIN}${path === '/' ? '/' : path}`,
   };
 }
