@@ -61,6 +61,7 @@ const PILOT_ITERATIONS = [
 const ABOUT_PARTNERS = [
   'Université de Montréal',
   'Mila – Quebec Artificial Intelligence Institute',
+  'UNESCO Chair in Urban Landscape',
   'Enclume',
   'Sid Lee Architecture',
   'Dark Matter Labs',
