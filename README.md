@@ -1,141 +1,92 @@
 # WeDesign+
 
-WeDesign+ is a React and Vite prototype for visual civic consultation. The app combines an editorial product narrative with a Studio experience that generates concept directions from resident priorities.
+WeDesign+ is a public-facing editorial site for visual civic consultation.
 
-## Release Posture
+Primary site:
+- `https://www.wedesign.plus/`
 
-- Vercel-ready static build output in `dist/`
-- Server-side concept generation through [api/generate-concept.ts](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/api/generate-concept.ts)
-- Security headers and cache rules defined in [vercel.json](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/vercel.json)
-- No provider key is exposed in the client bundle
-- Deterministic local SVG visuals instead of external placeholder image services
+The site presents WeDesign+ through three core pages:
+- `Overview` — the main landing page and methodology narrative
+- `Pilot` — the Sainte-Marie pilot case study
+- `Research` — the academic and participatory research foundation
 
-## Stack
+## What Matters Here
 
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS v4
-- Motion
-- Vercel Functions
-- Google Gen AI SDK
+- This repo is for the website experience, not a generic product prototype README.
+- The canonical domain is `https://www.wedesign.plus/`.
+- The Vercel deployment exists, but it should defer to the main domain for indexing.
+- Search indexing is supported through:
+  - [index.html](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/index.html)
+  - [public/robots.txt](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/robots.txt)
+  - [public/sitemap.xml](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/sitemap.xml)
+  - [vercel.json](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/vercel.json)
+  - [src/lib/site.ts](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/src/lib/site.ts)
 
 ## Local Development
 
-### Prerequisites
-
+Requirements:
 - Node.js 20+
 - npm
 
-### Setup
+Run locally:
 
-1. Install dependencies:
+```bash
+npm install
+npm run dev
+```
 
-   ```bash
-   npm install
-   ```
-
-2. Create a local environment file:
-
-   ```bash
-   cp .env.example .env.local
-   ```
-
-3. Add the server-side API key:
-
-   ```bash
-   GEMINI_API_KEY=your_server_side_api_key_here
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-The app runs on `http://localhost:3000`. During local development, Vite serves the frontend and a dev-only `/api/generate-concept` endpoint using the same validation and generation logic as production.
-
-## Environment Variables
-
-| Variable | Required | Purpose |
-| --- | --- | --- |
-| `GEMINI_API_KEY` | Yes for Studio generation | Server-side provider key used by the local dev API and deployed Vercel Function |
-| `GEMINI_MODEL` | No | Overrides the model name. Defaults to `gemini-2.5-flash` |
-| `DISABLE_HMR` | No | Set to `true` to disable Vite hot module reload during editing sessions |
-
-If `GEMINI_API_KEY` is omitted, the site still renders, but Studio generation returns a clear server-side configuration error instead of exposing provider credentials in the browser.
+Default local URL:
+- `http://localhost:3000`
 
 ## Scripts
 
-- `npm run dev` starts the local Vite app with the development API endpoint
-- `npm run build` creates a production build in `dist/`
+- `npm run dev` starts the local development server
+- `npm run build` creates the production build in `dist/`
 - `npm run preview` serves the production build locally
-- `npm run clean` removes the local build output
-- `npm run typecheck` runs the TypeScript checker
-- `npm run verify` runs the full local release check
+- `npm run typecheck` runs TypeScript checks
+- `npm run verify` runs typecheck plus production build
 
-## Vercel Deployment
+## Content and Structure
 
-### Required project settings
+Main app files:
+- [src/App.tsx](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/src/App.tsx) — page structure, routing, CTA behavior, SEO updates
+- [src/index.css](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/src/index.css) — global styling
+- [src/lib/site.ts](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/src/lib/site.ts) — routes, labels, canonical metadata
 
-- Add `GEMINI_API_KEY` in Vercel Project Settings
-- Optionally add `GEMINI_MODEL`
+Key public assets:
+- [public/robots.txt](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/robots.txt)
+- [public/sitemap.xml](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/sitemap.xml)
+- [public/social-preview.jpg](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/social-preview.jpg)
 
-### Deployment flow
+Page visuals:
+- `src/assets/pages/overview/`
+- `src/assets/pages/pilot/`
+- `src/assets/pages/research/`
 
-1. Create a preview deployment:
+Brand assets:
+- `src/assets/brand/`
+- `public/favicon-16x16.png`
+- `public/favicon-32x32.png`
+- `public/apple-touch-icon.png`
 
-   ```bash
-   vercel deploy
-   ```
+## Deployment Notes
 
-2. Review the preview deployment, especially the Studio interaction.
+- Production should resolve to `https://www.wedesign.plus/`
+- Vercel should remain configured to redirect its project hostname to the main domain
+- If the main domain ever changes, update:
+  - [src/lib/site.ts](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/src/lib/site.ts)
+  - [index.html](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/index.html)
+  - [public/robots.txt](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/robots.txt)
+  - [public/sitemap.xml](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/public/sitemap.xml)
+  - [vercel.json](/Users/rsdmu/Desktop/cocoonlab/wedesignplus/vercel.json)
 
-3. Promote only after preview validation passes:
+## Maintenance Rule
 
-   ```bash
-   vercel deploy --prod
-   ```
+Keep this README focused on the live website:
+- what the site is
+- where it lives
+- what pages it contains
+- how to run it
+- what to update when routes, SEO, branding, or the domain change
 
-### What Vercel uses
-
-- Static output directory: `dist`
-- Serverless endpoint: `/api/generate-concept`
-- Security headers: CSP, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, and `X-Content-Type-Options`
-- API caching: disabled for dynamic model responses
-
-## Project Structure
-
-```text
-.
-├── api/
-│   └── generate-concept.ts
-├── src/
-│   ├── App.tsx
-│   ├── components/
-│   │   └── RootErrorBoundary.tsx
-│   ├── index.css
-│   ├── lib/
-│   │   ├── studio-server.ts
-│   │   ├── studio.ts
-│   │   ├── utils.ts
-│   │   └── visuals.ts
-│   └── main.tsx
-├── .env.example
-├── index.html
-├── metadata.json
-├── package.json
-├── tsconfig.json
-├── vercel.json
-└── vite.config.ts
-```
-
-## Verification
-
-Run the release check locally:
-
-```bash
-npm run verify
-```
-
-For a production-grade deployment, also validate the Vercel preview after environment variables are configured.
+Avoid filling it with product history, unused implementation details, or old prototype notes.

@@ -334,7 +334,7 @@ const Navbar = ({
   navigateToPage: NavigateToPage;
 }) => (
   <header className="w-full top-0 sticky z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10">
-    <nav className="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
+    <nav className="flex justify-between items-center w-full max-w-[1440px] mx-auto px-5 py-4 sm:px-8 sm:py-6">
       <PageLink
         page="overview"
         navigateToPage={navigateToPage}
@@ -363,7 +363,7 @@ const Navbar = ({
           </PageLink>
         ))}
       </div>
-      <EmailInquiryLink className="group ml-4 shrink-0 border border-primary bg-primary px-3 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 md:px-5 md:py-3">
+      <EmailInquiryLink className="group ml-3 shrink-0 border border-primary bg-primary px-2.5 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 sm:ml-4 sm:px-3 md:px-5 md:py-3">
         <span className="hidden font-sans text-[10px] uppercase tracking-[0.28em] text-white/70 md:block">
           Studio Inquiries
         </span>
@@ -376,7 +376,7 @@ const Navbar = ({
         </span>
       </EmailInquiryLink>
     </nav>
-    <div className="border-t border-outline-variant/10 px-8 pb-4 md:hidden">
+    <div className="border-t border-outline-variant/10 px-5 pb-3 sm:px-8 sm:pb-4 md:hidden">
       <div className="mx-auto flex max-w-[1440px] items-center gap-5 overflow-x-auto pt-4">
         {NAV_PAGES.map((page) => (
           <PageLink
@@ -398,8 +398,8 @@ const Navbar = ({
 );
 
 const Footer = ({ navigateToPage }: { navigateToPage: NavigateToPage }) => (
-  <footer className="w-full border-t border-outline-variant/20 bg-surface-container-highest mt-24">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16 w-full max-w-[1440px] mx-auto">
+  <footer className="w-full border-t border-outline-variant/20 bg-surface-container-highest mt-20 md:mt-24">
+    <div className="grid w-full max-w-[1440px] mx-auto grid-cols-1 gap-10 px-5 py-12 sm:px-8 md:grid-cols-3 md:gap-12 md:px-12 md:py-16">
       <div className="space-y-6">
         <BrandMark className="h-16 w-16" />
         <p className="font-sans text-xs uppercase tracking-tighter text-stone-600 leading-relaxed max-w-xs">
@@ -447,18 +447,18 @@ const OverviewPage = ({
   navigateToPage: NavigateToPage;
 }) => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-    <section className="pt-24 pb-32 max-w-[1440px] mx-auto px-8">
+    <section className="max-w-[1440px] mx-auto px-5 pt-16 pb-20 sm:px-8 sm:pt-20 sm:pb-24 md:pb-32 lg:pt-24">
       <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="asymmetric-header max-w-4xl lg:col-span-7">
-          <h1 className="text-7xl md:text-8xl italic font-light text-stone-900 leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl italic font-light text-stone-900 leading-tight">
             Visual public consultations{' '}
             <span className="text-primary">shaped by local values.</span>
           </h1>
-          <p className="mt-12 text-2xl md:text-3xl font-serif font-light text-stone-600 max-w-2xl leading-relaxed">
+          <p className="mt-8 max-w-2xl text-xl font-serif font-light leading-relaxed text-stone-600 sm:mt-10 sm:text-2xl md:mt-12 md:text-3xl">
             Moving from abstract bureaucratic plans to immediate, tangible visual
             consensus. We bridge the gap between policy and people.
           </p>
-          <div className="mt-16 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col items-start gap-6 sm:mt-12 sm:flex-row sm:items-center md:mt-16">
             <PageLink
               page="pilot"
               navigateToPage={navigateToPage}
@@ -496,22 +496,22 @@ const OverviewPage = ({
       </div>
     </section>
 
-    <section className="bg-surface-container-low py-32 px-8">
+    <section className="bg-surface-container-low px-5 py-20 sm:px-8 sm:py-24 md:py-32">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
         <div>
           <span className="font-sans text-sm uppercase tracking-[0.3em] text-primary mb-6 block">
             The Cost of Delay
           </span>
-          <h2 className="text-5xl italic mb-8">
+          <h2 className="mb-8 text-4xl italic sm:text-5xl">
             The Risk of Abstract Consultation
           </h2>
-          <p className="text-stone-600 text-lg leading-relaxed mb-12">
+          <p className="mb-12 text-base leading-relaxed text-stone-600 sm:text-lg">
             Traditional civic engagement happens too late. By the time a project
             is visualized, decisions are often immutable. This &quot;Consultation
             Gap&quot; leads to project friction, community resentment, and lost
             trust.
           </p>
-          <div className="bg-white p-12 rounded-xl shadow-sm border border-outline-variant/10">
+          <div className="rounded-xl border border-outline-variant/10 bg-white p-8 shadow-sm sm:p-10 md:p-12">
             <div className="flex items-end justify-between h-48 space-x-4 mb-6">
               <div className="w-full bg-surface-container-high h-[20%] transition-all relative group">
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-sans uppercase">
@@ -557,15 +557,15 @@ const OverviewPage = ({
       </div>
     </section>
 
-    <section className="py-32 px-8 max-w-[1440px] mx-auto">
+    <section className="max-w-[1440px] mx-auto px-5 py-20 sm:px-8 sm:py-24 md:py-32">
       <div className="text-center mb-24">
         <span className="font-sans text-sm uppercase tracking-[0.3em] text-primary mb-4 block">
           The WeDesign+ Methodology
         </span>
-        <h2 className="text-6xl italic">A cycle of clarity.</h2>
+        <h2 className="text-5xl italic sm:text-6xl">A cycle of clarity.</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
-        <div className="md:col-span-8 bg-surface-container-low p-12 flex flex-col justify-between">
+        <div className="md:col-span-8 bg-surface-container-low p-8 sm:p-10 md:p-12 flex flex-col justify-between">
           <div>
             <div className="w-12 h-12 bg-primary text-white flex items-center justify-center font-sans mb-8">
               01
@@ -579,7 +579,7 @@ const OverviewPage = ({
           </div>
           <div className="relative mt-12 overflow-hidden rounded-[24px] border border-outline-variant/20 shadow-sm">
             <img
-              className="h-72 w-full object-cover"
+              className="h-56 w-full object-cover sm:h-64 md:h-72"
               src={overviewDescribeImage}
               alt="Resident typing needs into the consultation interface"
               loading="lazy"
@@ -589,7 +589,7 @@ const OverviewPage = ({
             </div>
           </div>
         </div>
-        <div className="md:col-span-4 bg-primary text-white p-12 flex flex-col justify-between civic-gradient">
+        <div className="md:col-span-4 bg-primary text-white p-8 sm:p-10 md:p-12 flex flex-col justify-between civic-gradient">
           <div>
             <div className="w-12 h-12 bg-white text-primary flex items-center justify-center font-sans mb-8">
               02
@@ -601,9 +601,9 @@ const OverviewPage = ({
               vistas.
             </p>
           </div>
-          <Sparkles className="w-24 h-24 opacity-20" />
+          <Sparkles className="h-16 w-16 opacity-20 sm:h-24 sm:w-24" />
         </div>
-        <div className="md:col-span-4 bg-surface-container-highest p-12 flex flex-col justify-between">
+        <div className="md:col-span-4 bg-surface-container-highest p-8 sm:p-10 md:p-12 flex flex-col justify-between">
           <div>
             <div className="w-12 h-12 border border-primary text-primary flex items-center justify-center font-sans mb-8">
               03
@@ -615,7 +615,7 @@ const OverviewPage = ({
             </p>
           </div>
         </div>
-        <div className="md:col-span-8 bg-white border border-outline-variant/30 p-12 flex flex-col justify-between">
+        <div className="md:col-span-8 bg-white border border-outline-variant/30 p-8 sm:p-10 md:p-12 flex flex-col justify-between">
           <div className="flex justify-between items-start">
             <div className="max-w-md">
               <div className="w-12 h-12 bg-tertiary text-white flex items-center justify-center font-sans mb-8">
@@ -628,7 +628,7 @@ const OverviewPage = ({
               </p>
             </div>
             <div className="text-right">
-              <span className="font-sans text-5xl text-tertiary block">90%</span>
+              <span className="block font-sans text-4xl text-tertiary sm:text-5xl">90%</span>
               <span className="font-sans text-[10px] uppercase tracking-widest text-stone-500">
                 Approval Rate
               </span>
@@ -651,22 +651,22 @@ const PilotPage = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="max-w-[1440px] mx-auto px-8 md:px-24 py-16"
+    className="max-w-[1440px] mx-auto px-5 py-12 sm:px-8 sm:py-14 md:px-24 md:py-16"
   >
-    <section className="mb-32">
+    <section className="mb-20 sm:mb-24 md:mb-32">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
         <div className="md:col-span-8">
-          <h1 className="text-6xl md:text-8xl italic font-light leading-tight mb-8">
+          <h1 className="mb-6 text-4xl italic font-light leading-tight sm:mb-8 sm:text-5xl md:text-8xl">
             Pilot: Sainte-Marie (2025)
           </h1>
-          <p className="text-2xl md:text-3xl text-stone-600 max-w-2xl leading-relaxed">
+          <p className="max-w-2xl text-xl leading-relaxed text-stone-600 sm:text-2xl md:text-3xl">
             From first input to shared direction in one workshop cycle. A
             documentary exploration of civic alignment in Montreal&apos;s historic
             district.
           </p>
         </div>
-        <div className="md:col-span-4 pb-4">
-          <div className="flex flex-col gap-6 font-sans text-xs uppercase tracking-tighter border-l border-outline-variant/30 pl-8">
+        <div className="md:col-span-4 pb-0 md:pb-4">
+          <div className="grid grid-cols-3 gap-4 border-t border-outline-variant/30 pt-6 font-sans text-[10px] uppercase tracking-tighter sm:gap-6 sm:text-xs md:flex md:flex-col md:border-t-0 md:border-l md:pl-8 md:pt-0">
             <div>
               <span className="text-stone-400 block mb-1">Location</span>
               <span className="font-bold">Sainte-Marie, Montreal, QC</span>
@@ -684,7 +684,7 @@ const PilotPage = () => (
       </div>
     </section>
 
-    <section className="mb-32 relative group">
+    <section className="mb-20 sm:mb-24 md:mb-32 relative group">
       <div className="relative aspect-[16/9] overflow-hidden rounded-[28px] border border-outline-variant/20 bg-stone-950 shadow-[0_30px_80px_rgba(28,25,23,0.14)]">
         <img
           className="h-full w-full object-contain"
@@ -695,14 +695,14 @@ const PilotPage = () => (
       </div>
     </section>
 
-    <section className="mb-48 grid grid-cols-1 md:grid-cols-12 gap-16">
+    <section className="mb-32 grid grid-cols-1 gap-12 md:mb-48 md:grid-cols-12 md:gap-16">
       <div className="md:col-span-5 md:sticky top-32 h-fit">
-        <h2 className="font-sans text-4xl font-bold tracking-tighter uppercase mb-6 leading-none">
+        <h2 className="mb-6 font-sans text-3xl font-bold leading-none tracking-tighter uppercase sm:text-4xl">
           The Human <br />
           Perspective.
         </h2>
         <div className="w-12 h-1 bg-primary mb-8" />
-        <blockquote className="text-3xl italic leading-snug text-primary mb-8">
+        <blockquote className="mb-8 text-2xl italic leading-snug text-primary sm:text-3xl">
           &quot;For the first time, I didn&apos;t feel like I was filling out a
           form. I felt like I was contributing to a story that actually had an
           ending we all agreed on.&quot;
@@ -713,14 +713,14 @@ const PilotPage = () => (
       </div>
       <div className="md:col-span-7 space-y-16">
         <div className="space-y-8">
-          <p className="text-xl leading-relaxed">
+          <p className="text-lg leading-relaxed sm:text-xl">
             The Sainte-Marie pilot was designed to test the limits of compressed
             civic consultation. Traditional methods often stretch across months,
             leading to participant fatigue and data dilution. WeDesign+
             implemented a singular, high-intensity workshop cycle that bridged
             the gap between abstract planning and local reality.
           </p>
-          <p className="text-xl leading-relaxed">
+          <p className="text-lg leading-relaxed sm:text-xl">
             Using the WeDesign+ Studio environment, residents could visualize
             proposals in real time, discuss their needs, and refine their
             aspirations accordingly.
@@ -732,7 +732,7 @@ const PilotPage = () => (
               <span className="font-sans text-xs uppercase tracking-[0.28em] text-primary">
                 Live Concept Variants
               </span>
-              <h3 className="mt-3 text-3xl italic leading-tight">
+              <h3 className="mt-3 text-2xl italic leading-tight sm:text-3xl">
                 Three directions reviewed in the same session.
               </h3>
             </div>
@@ -742,13 +742,13 @@ const PilotPage = () => (
             </p>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-            <figure className="md:col-span-7 bg-white p-4 border border-outline-variant/20 shadow-sm">
+            <figure className="md:col-span-7 bg-white p-3 sm:p-4 border border-outline-variant/20 shadow-sm">
               <div className="aspect-square overflow-hidden bg-surface-container-low">
                 <img
                   className="h-full w-full object-cover"
                   src={PILOT_ITERATIONS[0].src}
                   alt="Pilot concept iteration 01"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
               <figcaption className="pt-4">
@@ -781,14 +781,14 @@ const PilotPage = () => (
               {PILOT_ITERATIONS.slice(1).map((iteration) => (
                 <figure
                   key={iteration.label}
-                  className="bg-white p-4 border border-outline-variant/20 shadow-sm"
+                  className="bg-white p-3 sm:p-4 border border-outline-variant/20 shadow-sm"
                 >
                   <div className="aspect-square overflow-hidden bg-surface-container-low">
                     <img
                       className="h-full w-full object-cover"
                       src={iteration.src}
                       alt={`Pilot concept ${iteration.label.toLowerCase()}`}
-                      loading="lazy"
+                      loading="eager"
                     />
                   </div>
                   <figcaption className="pt-4">
@@ -814,16 +814,16 @@ const ResearchPage = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="max-w-[1440px] mx-auto px-8 md:px-16 pt-24"
+    className="max-w-[1440px] mx-auto px-5 pt-16 sm:px-8 sm:pt-20 md:px-16 md:pt-24"
   >
-    <header className="mb-32">
+    <header className="mb-20 sm:mb-24 md:mb-32">
       <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-12">
         <div className="md:col-span-7 md:pl-[10%]">
-          <h1 className="italic text-6xl md:text-8xl text-stone-900 leading-tight max-w-4xl">
+          <h1 className="max-w-4xl italic text-5xl leading-tight text-stone-900 sm:text-6xl md:text-8xl">
             Built with communities, grounded in research.
           </h1>
           <div className="mt-12 flex flex-col gap-12 items-baseline">
-            <p className="text-2xl text-stone-600 max-w-xl leading-relaxed">
+            <p className="max-w-xl text-xl leading-relaxed text-stone-600 sm:text-2xl">
               Our methodology bridges the gap between large-scale data and
               hyper-local nuance. By structuring disagreement, we find the path
               to collective progress.
@@ -852,8 +852,8 @@ const ResearchPage = () => (
       </div>
     </header>
 
-    <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
-      <div className="md:col-span-8 bg-white p-10 flex flex-col justify-between border border-outline-variant/10">
+    <section className="mb-24 grid grid-cols-1 gap-6 md:mb-32 md:grid-cols-12 md:gap-8">
+      <div className="md:col-span-8 bg-white p-8 sm:p-10 flex flex-col justify-between border border-outline-variant/10">
         <div>
           <span className="font-sans text-xs uppercase tracking-widest text-primary mb-4 block">
             Community Evaluation
@@ -885,7 +885,7 @@ const ResearchPage = () => (
           </div>
         </div>
       </div>
-      <div className="md:col-span-4 bg-surface-container-low p-10">
+      <div className="md:col-span-4 bg-surface-container-low p-8 sm:p-10">
         <span className="font-sans text-xs uppercase tracking-widest text-primary mb-4 block">
           Identity Matrix
         </span>
@@ -912,17 +912,17 @@ const ResearchPage = () => (
       </div>
     </section>
 
-    <section className="mb-40">
+    <section className="mb-32 md:mb-40">
       <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-8">
-        <h2 className="text-5xl">Academic Foundation</h2>
+        <h2 className="text-4xl sm:text-5xl">Academic Foundation</h2>
         <div className="flex gap-6">
           <a
-            href="https://huggingface.co/datasets/CUPUM/mid-space"
+            href="https://mid-space.one/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-sans text-sm uppercase tracking-widest border-b-2 border-tertiary pb-1 flex items-center gap-2 group"
           >
-            Access Mid-Space Dataset
+            More on Research
             <ArrowUpRight
               size={16}
               className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
