@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, PlayCircle, Sparkles } from 'lucide-react';
+import splashLogo from './assets/brand/splash.png';
 import overviewDescribeImage from './assets/pages/overview/typing-needs.jpg';
-import overviewHeroConsultationImage from './assets/pages/overview/live-consultation.png';
-import overviewExistingSiteImage from './assets/pages/overview/existing-site.png';
+import overviewHeroConsultationImage from './assets/pages/overview/live-consultation.jpg';
+import overviewExistingSiteImage from './assets/pages/overview/existing-site.jpg';
 import pilotDemoGif from './assets/pages/pilot/demo-wedesign.gif';
 import pilotConsultationVideo from './assets/pages/pilot/wedesign-cdc-consultation.mp4';
 import pilotGeneratedDesign1 from './assets/pages/pilot/generated-design-1.png';
@@ -45,6 +46,16 @@ const PILOT_ITERATIONS = [
   },
 ] as const;
 
+const BrandMark = ({ className = '' }: { className?: string }) => (
+  <img
+    src={splashLogo}
+    alt=""
+    aria-hidden="true"
+    className={cn('h-11 w-11 object-contain drop-shadow-[0_10px_24px_rgba(123,95,133,0.16)]', className)}
+    loading="eager"
+  />
+);
+
 const Navbar = ({
   activePage,
   setPage,
@@ -55,11 +66,13 @@ const Navbar = ({
   <header className="w-full top-0 sticky z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10">
     <nav className="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
       <button
-        className="font-sans font-bold tracking-tight text-primary text-xl"
+        aria-label="Go to overview"
+        className="group inline-flex items-center"
         onClick={() => setPage('overview')}
         type="button"
       >
-        WeDesign+
+        <BrandMark className="transition-transform duration-300 group-hover:scale-[1.03]" />
+        <span className="sr-only">WeDesign+</span>
       </button>
       <div className="hidden md:flex space-x-8">
         {NAV_PAGES.map((page) => (
@@ -83,7 +96,7 @@ const Navbar = ({
         className="group ml-4 shrink-0 border border-primary bg-primary px-3 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 md:px-5 md:py-3"
       >
         <span className="hidden font-sans text-[10px] uppercase tracking-[0.28em] text-white/70 md:block">
-          To Explore The Studio
+          Studio Inquiries
         </span>
         <span className="flex items-center gap-2 text-[11px] font-sans font-bold uppercase tracking-[0.18em] md:mt-1 md:text-sm">
           Email Rashid
@@ -94,6 +107,23 @@ const Navbar = ({
         </span>
       </a>
     </nav>
+    <div className="border-t border-outline-variant/10 px-8 pb-4 md:hidden">
+      <div className="mx-auto flex max-w-[1440px] items-center gap-5 overflow-x-auto pt-4">
+        {NAV_PAGES.map((page) => (
+          <button
+            key={page}
+            onClick={() => setPage(page)}
+            className={cn(
+              'shrink-0 text-xs uppercase tracking-[0.24em] transition-colors duration-300',
+              activePage === page ? 'text-primary font-bold' : 'text-stone-500',
+            )}
+            type="button"
+          >
+            {PAGE_LABELS[page]}
+          </button>
+        ))}
+      </div>
+    </div>
   </header>
 );
 
@@ -101,9 +131,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
   <footer className="w-full border-t border-outline-variant/20 bg-surface-container-highest mt-24">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16 w-full max-w-[1440px] mx-auto">
       <div className="space-y-6">
-        <div className="font-serif italic text-2xl text-stone-900">
-          WeDesign+
-        </div>
+        <BrandMark className="h-16 w-16" />
         <p className="font-sans text-xs uppercase tracking-tighter text-stone-600 leading-relaxed max-w-xs">
           Civic technology for the next generation of participatory urban design.
           Rebuilding trust through radical visual transparency.
@@ -125,6 +153,19 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
         ))}
       </div>
       <div className="space-y-4">
+        <span className="font-sans text-xs uppercase tracking-widest font-bold mb-2 block">
+          Contact
+        </span>
+        <a
+          href={CONTACT_MAILTO}
+          className="inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.18em] text-primary transition-colors hover:text-stone-900"
+        >
+          Email Rashid
+          <ArrowUpRight size={14} />
+        </a>
+        <p className="font-sans text-xs leading-relaxed text-stone-600 max-w-xs">
+          For studio walkthroughs, pilot briefings, and collaboration inquiries.
+        </p>
         <p className="font-sans text-xs uppercase tracking-tighter text-stone-600">
           © 2026 WeDesign+ Civic Consultation. Montreal, QC.
         </p>

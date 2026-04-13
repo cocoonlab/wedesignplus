@@ -26,6 +26,11 @@
   body {
     @apply bg-surface text-stone-900 font-sans antialiased;
   }
+
+  img,
+  video {
+    display: block;
+  }
   
   h1, h2, h3, h4, .serif-text {
     @apply font-serif italic;
@@ -34,10 +39,16 @@
 
 @layer utilities {
   .asymmetric-header {
-    padding-left: 15%;
+    padding-left: 0;
   }
   
   .civic-gradient {
     background: linear-gradient(135deg, #715574 0%, #7b5e7d 100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .asymmetric-header {
+    padding-left: 15%;
   }
 }

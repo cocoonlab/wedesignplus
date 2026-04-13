@@ -1,0 +1,97 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - button "Go to overview" [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e8]: WeDesign+
+      - generic [ref=e9]:
+        - button "Overview" [ref=e10]
+        - button "Pilot" [ref=e11]
+        - button "Research" [ref=e12]
+      - link "Studio Inquiries Email Rashid rashid@cocoonlab.ai" [ref=e13] [cursor=pointer]:
+        - /url: mailto:rashid@cocoonlab.ai?subject=WeDesign%2B%20Studio%20inquiry&body=Hi%20Rashid%2C%0A%0AI'd%20love%20to%20learn%20more%20about%20WeDesign%2B%20Studio.%0A%0ABest%2C%0A
+        - generic [ref=e14]: Studio Inquiries
+        - generic [ref=e15]:
+          - text: Email Rashid
+          - img [ref=e16]
+        - generic [ref=e19]: rashid@cocoonlab.ai
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - heading "Visual public consultations shaped by local values." [level=1] [ref=e25]
+          - paragraph [ref=e26]: Moving from abstract bureaucratic plans to immediate, tangible visual consensus. We bridge the gap between policy and people.
+          - button "See the Pilot" [ref=e28]:
+            - img [ref=e29]
+            - generic [ref=e32]: See the Pilot
+        - figure "Live Consultation Residents, facilitators, and visual proposals aligned in the same conversation." [ref=e34]:
+          - img "Live consultation session" [ref=e36]
+          - generic [ref=e38]:
+            - generic [ref=e39]: Live Consultation
+            - paragraph [ref=e40]: Residents, facilitators, and visual proposals aligned in the same conversation.
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: The Cost of Delay
+          - heading "The Risk of Abstract Consultation" [level=2] [ref=e45]
+          - paragraph [ref=e46]: Traditional civic engagement happens too late. By the time a project is visualized, decisions are often immutable. This "Consultation Gap" leads to project friction, community resentment, and lost trust.
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e50]: Early Concept
+              - generic [ref=e54]: Max Conflict Risk
+            - generic [ref=e55]:
+              - generic [ref=e56]: "Stage 1: Ideation"
+              - generic [ref=e57]: "Stage 4: Implementation"
+        - figure "Existing Condition Without a shared visual language, public conversations stay vague and conflict arrives late." [ref=e59]:
+          - img "Existing urban site condition before redesign" [ref=e61]
+          - generic [ref=e63]:
+            - generic [ref=e64]: Existing Condition
+            - paragraph [ref=e65]: Without a shared visual language, public conversations stay vague and conflict arrives late.
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e68]: The WeDesign+ Methodology
+          - heading "A cycle of clarity." [level=2] [ref=e69]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - generic [ref=e73]: "01"
+              - heading "Describe" [level=3] [ref=e74]
+              - paragraph [ref=e75]: Citizens express their needs in natural language, not technical jargon. We capture the essence of what "home" or "safety" looks like to them.
+            - generic [ref=e76]:
+              - img "Resident typing needs into the consultation interface" [ref=e77]
+              - generic [ref=e78]: Describe
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: "02"
+              - heading "Generate" [level=3] [ref=e82]
+              - paragraph [ref=e83]: Our proprietary model renders high-fidelity visual possibilities in real-time, instantly manifesting civic desires into architectural vistas.
+            - img [ref=e84]
+          - generic [ref=e88]:
+            - generic [ref=e89]: "03"
+            - heading "Debate" [level=3] [ref=e90]
+            - paragraph [ref=e91]: Stakeholders critique visuals, not just documents. The debate moves from speculation to grounded aesthetic and functional feedback.
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - generic [ref=e95]: "04"
+              - heading "Decide" [level=3] [ref=e96]
+              - paragraph [ref=e97]: Achieve consensus backed by visual proof. We produce a final Consultation Record that serves as a visual mandate for developers.
+            - generic [ref=e98]:
+              - generic [ref=e99]: 90%
+              - text: Approval Rate
+  - contentinfo [ref=e105]:
+    - generic [ref=e106]:
+      - generic [ref=e107]:
+        - img [ref=e108]
+        - paragraph [ref=e109]: Civic technology for the next generation of participatory urban design. Rebuilding trust through radical visual transparency.
+      - generic [ref=e110]:
+        - generic [ref=e111]: Explore
+        - button "Overview" [ref=e112]
+        - button "Pilot" [ref=e113]
+        - button "Research" [ref=e114]
+      - generic [ref=e115]:
+        - generic [ref=e116]: Contact
+        - link "Email Rashid" [ref=e117] [cursor=pointer]:
+          - /url: mailto:rashid@cocoonlab.ai?subject=WeDesign%2B%20Studio%20inquiry&body=Hi%20Rashid%2C%0A%0AI'd%20love%20to%20learn%20more%20about%20WeDesign%2B%20Studio.%0A%0ABest%2C%0A
+          - text: Email Rashid
+          - img [ref=e118]
+        - paragraph [ref=e121]: For studio walkthroughs, pilot briefings, and collaboration inquiries.
+        - paragraph [ref=e122]: © 2026 WeDesign+ Civic Consultation. Montreal, QC.
