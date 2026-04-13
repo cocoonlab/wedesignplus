@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, PlayCircle, Sparkles } from 'lucide-react';
-import overviewConsultationImage from './assets/pages/overview/consultation-session.jpg';
-import overviewHeroConsultationImage from './assets/pages/overview/victoria-precision-consulation-session.jpg';
+import overviewDescribeImage from './assets/pages/overview/typing-needs.jpg';
+import overviewHeroConsultationImage from './assets/pages/overview/victoria-precision-sessions.jpg';
 import overviewExistingSiteImage from './assets/pages/overview/existing-site.png';
 import overviewVictoriaLocationImage from './assets/pages/overview/victoria-precision-location.png';
 import pilotDemoGif from './assets/pages/pilot/demo-wedesign.gif';
@@ -166,7 +166,7 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
               <img
                 className="h-full w-full object-cover"
                 src={overviewHeroConsultationImage}
-                alt="Victoria Precision consultation session in progress"
+                alt="Victoria Precision sessions in progress"
                 loading="eager"
               />
             </div>
@@ -293,8 +293,8 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
           <div className="relative mt-12 overflow-hidden rounded-[24px] border border-outline-variant/20 shadow-sm">
             <img
               className="h-72 w-full object-cover"
-              src={overviewConsultationImage}
-              alt="Residents participating in a WeDesign+ consultation session"
+              src={overviewDescribeImage}
+              alt="Resident typing needs into the consultation interface"
               loading="lazy"
             />
             <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.28em] text-stone-700 backdrop-blur-sm">
@@ -464,30 +464,30 @@ const PilotPage = () => (
                   loading="lazy"
                 />
               </div>
-              <figcaption className="flex flex-col gap-4 pt-4 md:flex-row md:items-start md:justify-between">
-                <div className="min-w-0 flex-1">
+              <figcaption className="pt-4">
+                <div className="flex items-start justify-between gap-4">
                   <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-primary">
                     {PILOT_ITERATIONS[0].label}
                   </span>
-                  <p className="mt-2 max-w-sm font-sans text-sm leading-relaxed text-stone-600">
-                    {PILOT_ITERATIONS[0].note}
-                  </p>
-                  <div className="mt-4 overflow-hidden rounded-[20px] border border-outline-variant/20 bg-stone-950 shadow-sm">
-                    <video
-                      className="aspect-video w-full object-cover"
-                      src={pilotConsultationVideo}
-                      poster={PILOT_ITERATIONS[0].src}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      controls
-                    />
-                  </div>
+                  <span className="self-start rounded-full bg-surface-container-low px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-stone-500">
+                    Reviewed live
+                  </span>
                 </div>
-                <span className="self-start rounded-full bg-surface-container-low px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-stone-500">
-                  Reviewed live
-                </span>
+                <p className="mt-3 max-w-lg font-sans text-sm leading-relaxed text-stone-600">
+                  {PILOT_ITERATIONS[0].note}
+                </p>
+                <div className="mt-6 overflow-hidden rounded-[24px] border border-outline-variant/20 bg-stone-950 shadow-[0_18px_40px_rgba(28,25,23,0.12)]">
+                  <video
+                    className="aspect-[4/3] w-full object-cover md:aspect-[16/10]"
+                    src={pilotConsultationVideo}
+                    poster={PILOT_ITERATIONS[0].src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                  />
+                </div>
               </figcaption>
             </figure>
             <div className="md:col-span-5 grid gap-4">
