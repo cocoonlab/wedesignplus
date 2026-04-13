@@ -65,6 +65,25 @@ const BrandMark = ({ className = '' }: { className?: string }) => (
 
 type NavigateToPage = (page: Page) => void;
 
+function EmailInquiryLink({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={CONTACT_MAILTO}
+      title={`Email ${CONTACT_EMAIL}`}
+      className={cn('cursor-pointer', className)}
+      onClick={handleEmailInquiryClick}
+    >
+      {children}
+    </a>
+  );
+}
+
 function PageLink({
   page,
   navigateToPage,
@@ -114,6 +133,25 @@ function handlePageLinkClick(
 
   event.preventDefault();
   navigateToPage(page);
+}
+
+function handleEmailInquiryClick(event: ReactMouseEvent<HTMLAnchorElement>) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
+  event.preventDefault();
+
+  if (typeof window !== 'undefined') {
+    window.location.assign(CONTACT_MAILTO);
+  }
 }
 
 function usePageRouting() {
@@ -325,10 +363,7 @@ const Navbar = ({
           </PageLink>
         ))}
       </div>
-      <a
-        href={CONTACT_MAILTO}
-        className="group ml-4 shrink-0 border border-primary bg-primary px-3 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 md:px-5 md:py-3"
-      >
+      <EmailInquiryLink className="group ml-4 shrink-0 border border-primary bg-primary px-3 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 md:px-5 md:py-3">
         <span className="hidden font-sans text-[10px] uppercase tracking-[0.28em] text-white/70 md:block">
           Studio Inquiries
         </span>
@@ -339,7 +374,7 @@ const Navbar = ({
         <span className="mt-1 hidden font-sans text-[11px] tracking-[0.04em] text-white/75 md:block">
           {CONTACT_EMAIL}
         </span>
-      </a>
+      </EmailInquiryLink>
     </nav>
     <div className="border-t border-outline-variant/10 px-8 pb-4 md:hidden">
       <div className="mx-auto flex max-w-[1440px] items-center gap-5 overflow-x-auto pt-4">
@@ -391,13 +426,10 @@ const Footer = ({ navigateToPage }: { navigateToPage: NavigateToPage }) => (
         <span className="font-sans text-xs uppercase tracking-widest font-bold mb-2 block">
           Contact
         </span>
-        <a
-          href={CONTACT_MAILTO}
-          className="inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.18em] text-primary transition-colors hover:text-stone-900"
-        >
+        <EmailInquiryLink className="inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.18em] text-primary transition-colors hover:text-stone-900">
           Email Rashid
           <ArrowUpRight size={14} />
-        </a>
+        </EmailInquiryLink>
         <p className="font-sans text-xs leading-relaxed text-stone-600 max-w-xs">
           For studio walkthroughs, pilot briefings, and collaboration inquiries.
         </p>
