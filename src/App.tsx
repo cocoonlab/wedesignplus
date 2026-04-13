@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, PlayCircle, Sparkles } from 'lucide-react';
 import overviewConsultationImage from './assets/pages/overview/consultation-session.jpg';
+import overviewHeroConsultationImage from './assets/pages/overview/victoria-precision-consulation-session.jpg';
 import overviewExistingSiteImage from './assets/pages/overview/existing-site.png';
-import overviewProjectImage from './assets/pages/overview/wedesign-project.jpg';
+import overviewVictoriaLocationImage from './assets/pages/overview/victoria-precision-location.png';
 import pilotDemoGif from './assets/pages/pilot/demo-wedesign.gif';
+import pilotConsultationVideo from './assets/pages/pilot/wedesign-cdc-consultation.mp4';
 import pilotGeneratedDesign1 from './assets/pages/pilot/generated-design-1.png';
 import pilotGeneratedDesign2 from './assets/pages/pilot/generated-design-2.png';
 import pilotGeneratedDesign3 from './assets/pages/pilot/generated-design-3.png';
@@ -124,16 +126,6 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
         ))}
       </div>
       <div className="space-y-4">
-        <blockquote className="font-sans text-sm text-stone-600 leading-relaxed max-w-sm">
-          &quot;By utilizing the WeDesign+ Studio environment, residents were able to
-          visualize proposals in real-time, adjusting parameters of public space
-          density and greenery directly on-site via tablet-based AR anchors.&quot;
-        </blockquote>
-        <blockquote className="font-sans text-sm text-stone-600 leading-relaxed max-w-sm">
-          &ldquo;Using the WeDesign+ Studio environment, residents could visualize
-          proposals in real time, discuss their needs, and refine their
-          aspirations accordingly.&rdquo;
-        </blockquote>
         <p className="font-sans text-xs uppercase tracking-tighter text-stone-600">
           © 2026 WeDesign+ Civic Consultation. Montreal, QC.
         </p>
@@ -156,13 +148,6 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
             consensus. We bridge the gap between policy and people.
           </p>
           <div className="mt-16 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-            <a
-              href={CONTACT_MAILTO}
-              className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-sm font-bold tracking-widest uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95"
-            >
-              Email Rashid To Explore The Studio
-              <ArrowUpRight size={18} />
-            </a>
             <button
               className="flex items-center space-x-3 text-stone-600 group"
               onClick={() => setPage('pilot')}
@@ -180,8 +165,8 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
             <div className="aspect-[4/5] overflow-hidden">
               <img
                 className="h-full w-full object-cover"
-                src={overviewProjectImage}
-                alt="WeDesign+ project session in progress"
+                src={overviewHeroConsultationImage}
+                alt="Victoria Precision consultation session in progress"
                 loading="eager"
               />
             </div>
@@ -236,26 +221,52 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
             </div>
           </div>
         </div>
-        <figure className="relative overflow-hidden rounded-[28px] border border-outline-variant/20 bg-stone-950 shadow-[0_24px_70px_rgba(28,25,23,0.14)]">
-          <div className="aspect-[5/4] overflow-hidden">
-            <img
-              className="h-full w-full object-cover"
-              src={overviewExistingSiteImage}
-              alt="Existing urban site condition before redesign"
-              loading="lazy"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-stone-950/15 to-transparent" />
-          <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-6 md:p-8">
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/70">
-              Existing Condition
-            </span>
-            <p className="max-w-md text-2xl italic leading-snug text-white">
-              Without a shared visual language, public conversations stay vague
-              and conflict arrives late.
-            </p>
-          </figcaption>
-        </figure>
+        <div className="space-y-4">
+          <figure className="relative overflow-hidden rounded-[28px] border border-outline-variant/20 bg-stone-950 shadow-[0_24px_70px_rgba(28,25,23,0.14)]">
+            <div className="aspect-[5/4] overflow-hidden">
+              <img
+                className="h-full w-full object-cover"
+                src={overviewExistingSiteImage}
+                alt="Existing urban site condition before redesign"
+                loading="lazy"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-stone-950/15 to-transparent" />
+            <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-6 md:p-8">
+              <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/70">
+                Existing Condition
+              </span>
+              <p className="max-w-md text-2xl italic leading-snug text-white">
+                Without a shared visual language, public conversations stay vague
+                and conflict arrives late.
+              </p>
+            </figcaption>
+          </figure>
+          <figure className="overflow-hidden rounded-[24px] border border-outline-variant/20 bg-white shadow-sm">
+            <div className="aspect-[21/7] overflow-hidden bg-surface-container-low">
+              <img
+                className="h-full w-full object-cover"
+                src={overviewVictoriaLocationImage}
+                alt="Location context for the consultation site"
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="flex flex-col gap-3 p-5 md:flex-row md:items-end md:justify-between">
+              <div>
+                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-primary">
+                  Site Context
+                </span>
+                <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-stone-600">
+                  A grounded view of place makes the consultation legible before
+                  any proposal is introduced.
+                </p>
+              </div>
+              <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-stone-400">
+                Context before intervention
+              </span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -330,7 +341,7 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
               </p>
             </div>
             <div className="text-right">
-              <span className="font-sans text-5xl text-tertiary block">92%</span>
+              <span className="font-sans text-5xl text-tertiary block">90%</span>
               <span className="font-sans text-[10px] uppercase tracking-widest text-stone-500">
                 Approval Rate
               </span>
@@ -394,21 +405,6 @@ const PilotPage = () => (
           alt="WeDesign+ pilot demo visual"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/55 via-transparent to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-6 md:flex-row md:items-end md:justify-between md:p-8">
-          <div>
-            <span className="font-sans text-[10px] uppercase tracking-[0.32em] text-white/70">
-              Live Demo Capture
-            </span>
-            <p className="mt-3 max-w-xl text-2xl italic leading-snug text-white">
-              Residents adjusted density and greenery in real time while seeing
-              the corridor update instantly.
-            </p>
-          </div>
-          <div className="self-start rounded-full border border-white/15 bg-white/10 px-4 py-2 font-sans text-[10px] uppercase tracking-[0.28em] text-white backdrop-blur-md md:self-auto">
-            Tablet-based AR anchors
-          </div>
-        </div>
       </div>
     </section>
 
@@ -425,7 +421,7 @@ const PilotPage = () => (
           ending we all agreed on.&quot;
         </blockquote>
         <cite className="font-sans text-sm font-bold uppercase tracking-widest">
-          - MARC-ANDRE L., RESIDENT
+          - PILOT PARTICIPANT
         </cite>
       </div>
       <div className="md:col-span-7 space-y-16">
@@ -438,10 +434,9 @@ const PilotPage = () => (
             the gap between abstract planning and local reality.
           </p>
           <p className="text-xl leading-relaxed">
-            By utilizing the WeDesign+ Studio environment, residents were able to
-            visualize proposals in real-time, adjusting parameters of public
-            space density and greenery directly on-site via tablet-based AR
-            anchors.
+            Using the WeDesign+ Studio environment, residents could visualize
+            proposals in real time, discuss their needs, and refine their
+            aspirations accordingly.
           </p>
         </div>
         <div className="space-y-8">
@@ -469,16 +464,28 @@ const PilotPage = () => (
                   loading="lazy"
                 />
               </div>
-              <figcaption className="flex items-start justify-between gap-4 pt-4">
-                <div>
+              <figcaption className="flex flex-col gap-4 pt-4 md:flex-row md:items-start md:justify-between">
+                <div className="min-w-0 flex-1">
                   <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-primary">
                     {PILOT_ITERATIONS[0].label}
                   </span>
                   <p className="mt-2 max-w-sm font-sans text-sm leading-relaxed text-stone-600">
                     {PILOT_ITERATIONS[0].note}
                   </p>
+                  <div className="mt-4 overflow-hidden rounded-[20px] border border-outline-variant/20 bg-stone-950 shadow-sm">
+                    <video
+                      className="aspect-video w-full object-cover"
+                      src={pilotConsultationVideo}
+                      poster={PILOT_ITERATIONS[0].src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls
+                    />
+                  </div>
                 </div>
-                <span className="rounded-full bg-surface-container-low px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-stone-500">
+                <span className="self-start rounded-full bg-surface-container-low px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-stone-500">
                   Reviewed live
                 </span>
               </figcaption>
