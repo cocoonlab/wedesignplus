@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, PlayCircle, Sparkles } from 'lucide-react';
 import overviewDescribeImage from './assets/pages/overview/typing-needs.jpg';
-import overviewHeroConsultationImage from './assets/pages/overview/victoria-precision-sessions.jpg';
+import overviewHeroConsultationImage from './assets/pages/overview/live-consultation.png';
 import overviewExistingSiteImage from './assets/pages/overview/existing-site.png';
-import overviewVictoriaLocationImage from './assets/pages/overview/victoria-precision-location.png';
 import pilotDemoGif from './assets/pages/pilot/demo-wedesign.gif';
 import pilotConsultationVideo from './assets/pages/pilot/wedesign-cdc-consultation.mp4';
 import pilotGeneratedDesign1 from './assets/pages/pilot/generated-design-1.png';
@@ -166,7 +165,7 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
               <img
                 className="h-full w-full object-cover"
                 src={overviewHeroConsultationImage}
-                alt="Victoria Precision sessions in progress"
+                alt="Live consultation session"
                 loading="eager"
               />
             </div>
@@ -240,30 +239,6 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
                 Without a shared visual language, public conversations stay vague
                 and conflict arrives late.
               </p>
-            </figcaption>
-          </figure>
-          <figure className="overflow-hidden rounded-[24px] border border-outline-variant/20 bg-white shadow-sm">
-            <div className="aspect-[21/7] overflow-hidden bg-surface-container-low">
-              <img
-                className="h-full w-full object-cover"
-                src={overviewVictoriaLocationImage}
-                alt="Location context for the consultation site"
-                loading="lazy"
-              />
-            </div>
-            <figcaption className="flex flex-col gap-3 p-5 md:flex-row md:items-end md:justify-between">
-              <div>
-                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-primary">
-                  Site Context
-                </span>
-                <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-stone-600">
-                  A grounded view of place makes the consultation legible before
-                  any proposal is introduced.
-                </p>
-              </div>
-              <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-stone-400">
-                Context before intervention
-              </span>
             </figcaption>
           </figure>
         </div>
