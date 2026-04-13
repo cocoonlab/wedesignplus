@@ -1,4 +1,4 @@
-export type Page = 'overview' | 'pilot' | 'research';
+export type Page = 'overview' | 'pilot' | 'research' | 'about';
 
 export const SITE_NAME = 'WeDesign+';
 export const SITE_TITLE_SUFFIX = 'Visual Public Consultations';
@@ -13,12 +13,14 @@ export const PAGE_LABELS: Record<Page, string> = {
   overview: 'Overview',
   pilot: 'Pilot',
   research: 'Research',
+  about: 'About',
 };
 
 export const PAGE_PATHS: Record<Page, string> = {
   overview: '/',
   pilot: '/pilot',
   research: '/research',
+  about: '/about',
 };
 
 const PAGE_ALIASES: Record<string, Page> = {
@@ -26,6 +28,7 @@ const PAGE_ALIASES: Record<string, Page> = {
   '/overview': 'overview',
   '/pilot': 'pilot',
   '/research': 'research',
+  '/about': 'about',
 };
 
 const PAGE_DETAILS: Record<
@@ -49,6 +52,11 @@ const PAGE_DETAILS: Record<
     shortTitle: 'Research',
     description:
       'Review the research foundation behind WeDesign+, including alignment datasets, participatory evaluation methods, and academic publications on inclusive civic design.',
+  },
+  about: {
+    shortTitle: 'About',
+    description:
+      'Learn how WeDesign+ emerged from AI Alignment for Inclusion, bringing together urban design, public participation, and responsible AI to support more inclusive public-space consultation.',
   },
 };
 

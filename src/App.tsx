@@ -28,7 +28,7 @@ import {
   type Page,
 } from './lib/site';
 
-const NAV_PAGES: Page[] = ['overview', 'pilot', 'research'];
+const NAV_PAGES: Page[] = ['overview', 'pilot', 'research', 'about'];
 const CONTACT_EMAIL = 'rashid@cocoonlab.ai';
 const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   'WeDesign+ Studio inquiry',
@@ -51,6 +51,15 @@ const PILOT_ITERATIONS = [
     label: 'Iteration 03',
     note: 'Later-round option tested against the priorities participants shared.',
   },
+] as const;
+const ABOUT_PARTNERS = [
+  'Université de Montréal',
+  'Mila – Quebec Artificial Intelligence Institute',
+  'Enclume',
+  'Sid Lee Architecture',
+  'Dark Matter Labs',
+  'IVADO',
+  'Canadian Commission for UNESCO',
 ] as const;
 
 const BrandMark = ({ className = '' }: { className?: string }) => (
@@ -995,6 +1004,124 @@ const ResearchPage = () => (
   </motion.div>
 );
 
+const AboutPage = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="max-w-[1440px] mx-auto px-5 pt-16 sm:px-8 sm:pt-20 md:px-16 md:pt-24"
+  >
+    <section className="mb-20 sm:mb-24 md:mb-32">
+      <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-7">
+          <span className="mb-5 block font-sans text-sm uppercase tracking-[0.28em] text-primary">
+            About WeDesign+
+          </span>
+          <h1 className="max-w-4xl text-5xl italic leading-tight text-stone-900 sm:text-6xl md:text-7xl xl:text-8xl">
+            A civic consultation platform rooted in inclusive AI research.
+          </h1>
+          <p className="mt-8 max-w-3xl text-xl leading-relaxed text-stone-600 sm:text-2xl">
+            WeDesign+ emerges from AI Alignment for Inclusion (AIAI), an ongoing
+            research initiative focused on generating more inclusive AI
+            representations of public space.
+          </p>
+        </div>
+        <div className="lg:col-span-5">
+          <div className="rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-8 shadow-[0_24px_70px_rgba(28,25,23,0.12)] sm:p-10">
+            <div className="flex items-center gap-4">
+              <BrandMark className="h-14 w-14 sm:h-16 sm:w-16" />
+              <div>
+                <span className="block font-sans text-[10px] uppercase tracking-[0.28em] text-primary">
+                  Research Origin
+                </span>
+                <p className="mt-2 text-lg italic leading-snug text-stone-900">
+                  From AIAI to a clearer, earlier, more meaningful public
+                  consultation process.
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 border-t border-outline-variant/20 pt-6">
+              <p className="font-sans text-sm leading-relaxed text-stone-600">
+                The project brings together expertise in urban design, public
+                participation, and responsible AI to help communities visualize
+                possibilities before plans harden into fixed outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="mb-20 grid grid-cols-1 gap-6 md:mb-24 md:grid-cols-12 md:gap-8">
+      <div className="md:col-span-7 rounded-[28px] border border-outline-variant/20 bg-white p-8 shadow-sm sm:p-10 md:p-12">
+        <span className="mb-4 block font-sans text-xs uppercase tracking-[0.28em] text-primary">
+          Collaborative Foundation
+        </span>
+        <p className="max-w-3xl text-lg leading-relaxed text-stone-600 sm:text-xl">
+          Developed in collaboration with Université de Montréal, Mila – Quebec
+          Artificial Intelligence Institute, Enclume, Sid Lee Architecture,
+          Dark Matter Labs, IVADO, and the Canadian Commission for UNESCO, the
+          project brings together expertise in urban design, public
+          participation, and responsible AI.
+        </p>
+      </div>
+      <div className="md:col-span-5 rounded-[28px] border border-outline-variant/20 bg-surface-container-low p-8 sm:p-10">
+        <span className="mb-5 block font-sans text-xs uppercase tracking-[0.28em] text-primary">
+          Partners
+        </span>
+        <div className="flex flex-wrap gap-3">
+          {ABOUT_PARTNERS.map((partner) => (
+            <span
+              key={partner}
+              className="rounded-full border border-outline-variant/30 bg-white px-4 py-2 font-sans text-xs uppercase tracking-[0.16em] text-stone-600"
+            >
+              {partner}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+      <article className="rounded-[28px] bg-primary p-8 text-white shadow-[0_24px_70px_rgba(113,85,116,0.18)] sm:p-10 md:p-12">
+        <span className="mb-5 block font-sans text-xs uppercase tracking-[0.28em] text-white/70">
+          What AIAI Explores
+        </span>
+        <p className="text-lg leading-relaxed text-white/90 sm:text-xl">
+          AIAI explores how artificial intelligence can help communities imagine
+          public spaces that reflect the needs of diverse populations, especially
+          voices too often left out of planning processes. It combines expert
+          input, community evaluation, and iterative visual generation to
+          produce shared visions of more accessible, welcoming, and inclusive
+          environments.
+        </p>
+      </article>
+      <article className="rounded-[28px] border border-outline-variant/20 bg-white p-8 shadow-sm sm:p-10 md:p-12">
+        <span className="mb-5 block font-sans text-xs uppercase tracking-[0.28em] text-primary">
+          What WeDesign+ Adds
+        </span>
+        <p className="text-lg leading-relaxed text-stone-600 sm:text-xl">
+          WeDesign+ builds on this foundation by transforming collective input
+          into visual proposals that make public consultation clearer, earlier,
+          and more meaningful.
+        </p>
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {['Describe', 'Compare', 'Refine'].map((step) => (
+            <div
+              key={step}
+              className="rounded-2xl bg-surface-container-low px-4 py-5 text-center"
+            >
+              <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-primary">
+                {step}
+              </span>
+            </div>
+          ))}
+        </div>
+      </article>
+    </section>
+  </motion.div>
+);
+
 export default function App() {
   const { page, navigateToPage } = usePageRouting();
 
@@ -1008,6 +1135,7 @@ export default function App() {
           {page === 'overview' && <OverviewPage navigateToPage={navigateToPage} />}
           {page === 'pilot' && <PilotPage />}
           {page === 'research' && <ResearchPage />}
+          {page === 'about' && <AboutPage />}
         </AnimatePresence>
       </main>
       <Footer navigateToPage={navigateToPage} />

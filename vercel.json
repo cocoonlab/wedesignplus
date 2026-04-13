@@ -29,6 +29,10 @@
     {
       "source": "/research",
       "destination": "/"
+    },
+    {
+      "source": "/about",
+      "destination": "/"
     }
   ],
   "functions": {
