@@ -30,6 +30,8 @@ import {
 
 const NAV_PAGES: Page[] = ['overview', 'pilot', 'research', 'about'];
 const CONTACT_EMAIL = 'rashid@cocoonlab.ai';
+const AIAI_URL =
+  'https://mila.quebec/en/ai4humanity/applied-projects/artificial-intelligence-alignment-for-inclusion-aiai';
 const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   'WeDesign+ Studio inquiry',
 )}&body=${encodeURIComponent(
@@ -682,7 +684,7 @@ const PilotPage = () => (
             </div>
             <div>
               <span className="text-stone-400 block mb-1">Participants</span>
-              <span className="font-bold">142 Registered</span>
+              <span className="font-bold">10 Registered</span>
             </div>
             <div>
               <span className="text-stone-400 block mb-1">Duration</span>
@@ -1021,9 +1023,17 @@ const AboutPage = () => (
             A civic consultation platform rooted in inclusive AI research.
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-relaxed text-stone-600 sm:text-2xl">
-            WeDesign+ emerges from AI Alignment for Inclusion (AIAI), an ongoing
-            research initiative focused on generating more inclusive AI
-            representations of public space.
+            WeDesign+ emerges from{' '}
+            <a
+              href={AIAI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-stone-900"
+            >
+              AI Alignment for Inclusion (AIAI)
+            </a>
+            , an ongoing research initiative focused on generating more
+            inclusive AI representations of public space.
           </p>
         </div>
         <div className="lg:col-span-5">
@@ -1035,8 +1045,17 @@ const AboutPage = () => (
                   Research Origin
                 </span>
                 <p className="mt-2 text-lg italic leading-snug text-stone-900">
-                  From AIAI to a clearer, earlier, more meaningful public
-                  consultation process.
+                  From{' '}
+                  <a
+                    href={AIAI_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-stone-900"
+                  >
+                    AIAI
+                  </a>{' '}
+                  to a clearer, earlier, more meaningful public consultation
+                  process.
                 </p>
               </div>
             </div>
