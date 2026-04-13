@@ -1,4 +1,9 @@
-import { useState } from 'react';
+import {
+  useEffect,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+  type ReactNode,
+} from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, PlayCircle, Sparkles } from 'lucide-react';
 import splashLogo from './assets/brand/splash.png';
@@ -12,14 +17,16 @@ import pilotGeneratedDesign2 from './assets/pages/pilot/generated-design-2.png';
 import pilotGeneratedDesign3 from './assets/pages/pilot/generated-design-3.png';
 import researchWorkshopImage from './assets/pages/research/dataset-creation-workshop.jpg';
 import { cn } from './lib/utils';
-
-type Page = 'overview' | 'pilot' | 'research';
-
-const PAGE_LABELS: Record<Page, string> = {
-  overview: 'Overview',
-  pilot: 'Pilot',
-  research: 'Research',
-};
+import {
+  getPageFromPath,
+  getPageHref,
+  getPageMetadata,
+  PAGE_LABELS,
+  SITE_NAME,
+  SITE_ORIGIN,
+  SOCIAL_IMAGE_URL,
+  type Page,
+} from './lib/site';
 
 const NAV_PAGES: Page[] = ['overview', 'pilot', 'research'];
 const CONTACT_EMAIL = 'rashid@cocoonlab.ai';
@@ -56,40 +63,266 @@ const BrandMark = ({ className = '' }: { className?: string }) => (
   />
 );
 
+type NavigateToPage = (page: Page) => void;
+
+function PageLink({
+  page,
+  navigateToPage,
+  className,
+  children,
+  ariaCurrent,
+  ariaLabel,
+}: {
+  key?: string;
+  page: Page;
+  navigateToPage: NavigateToPage;
+  className?: string;
+  children: ReactNode;
+  ariaCurrent?: 'page';
+  ariaLabel?: string;
+}) {
+  const href = getPageHref(page);
+
+  return (
+    <a
+      href={href}
+      aria-current={ariaCurrent}
+      aria-label={ariaLabel}
+      className={className}
+      onClick={(event) => handlePageLinkClick(event, page, navigateToPage)}
+    >
+      {children}
+    </a>
+  );
+}
+
+function handlePageLinkClick(
+  event: ReactMouseEvent<HTMLAnchorElement>,
+  page: Page,
+  navigateToPage: NavigateToPage,
+) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
+  event.preventDefault();
+  navigateToPage(page);
+}
+
+function usePageRouting() {
+  const [page, setPage] = useState<Page>(() => {
+    if (typeof window === 'undefined') {
+      return 'overview';
+    }
+
+    return getPageFromPath(window.location.pathname);
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const normalizedPage = getPageFromPath(window.location.pathname);
+
+    setPage(normalizedPage);
+
+    if (window.location.pathname === '/overview') {
+      window.history.replaceState({ page: normalizedPage }, '', '/');
+    }
+
+    const handlePopState = () => {
+      setPage(getPageFromPath(window.location.pathname));
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+  const navigateToPage = (nextPage: Page) => {
+    setPage(nextPage);
+
+    if (typeof window !== 'undefined') {
+      const nextHref = getPageHref(nextPage);
+
+      if (window.location.pathname !== nextHref) {
+        window.history.pushState({ page: nextPage }, '', nextHref);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  };
+
+  return {
+    navigateToPage,
+    page,
+  };
+}
+
+function useSeo(page: Page) {
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const metadata = getPageMetadata(page);
+    const siteDescription =
+      'WeDesign+ helps communities compare civic design directions through visual consultation, live concept generation, and research-led public participation.';
+
+    document.title = metadata.title;
+    document.documentElement.lang = 'en-CA';
+
+    upsertMetaTag('name', 'description', metadata.description);
+    upsertMetaTag(
+      'name',
+      'robots',
+      'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
+    );
+    upsertMetaTag('name', 'author', SITE_NAME);
+    upsertMetaTag('property', 'og:type', 'website');
+    upsertMetaTag('property', 'og:site_name', SITE_NAME);
+    upsertMetaTag('property', 'og:locale', 'en_CA');
+    upsertMetaTag('property', 'og:title', metadata.title);
+    upsertMetaTag('property', 'og:description', metadata.description);
+    upsertMetaTag('property', 'og:url', metadata.url);
+    upsertMetaTag('property', 'og:image', SOCIAL_IMAGE_URL);
+    upsertMetaTag(
+      'property',
+      'og:image:alt',
+      'WeDesign+ live public consultation session',
+    );
+    upsertMetaTag('name', 'twitter:card', 'summary_large_image');
+    upsertMetaTag('name', 'twitter:title', metadata.title);
+    upsertMetaTag('name', 'twitter:description', metadata.description);
+    upsertMetaTag('name', 'twitter:image', SOCIAL_IMAGE_URL);
+    upsertCanonicalLink(metadata.url);
+    upsertStructuredData('wedesignplus-structured-data', [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': `${SITE_ORIGIN}/#organization`,
+        name: SITE_NAME,
+        url: `${SITE_ORIGIN}/`,
+        description: siteDescription,
+        email: `mailto:${CONTACT_EMAIL}`,
+        logo: `${SITE_ORIGIN}/apple-touch-icon.png`,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${SITE_ORIGIN}/#website`,
+        name: SITE_NAME,
+        url: `${SITE_ORIGIN}/`,
+        description: siteDescription,
+        publisher: {
+          '@id': `${SITE_ORIGIN}/#organization`,
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        '@id': `${metadata.url}#webpage`,
+        name: metadata.title,
+        url: metadata.url,
+        description: metadata.description,
+        isPartOf: {
+          '@id': `${SITE_ORIGIN}/#website`,
+        },
+        about: 'Visual civic consultation',
+        inLanguage: 'en',
+      },
+    ]);
+  }, [page]);
+}
+
+function upsertMetaTag(
+  attribute: 'name' | 'property',
+  key: string,
+  content: string,
+) {
+  const selector = `meta[${attribute}="${key}"]`;
+  let element = document.head.querySelector(selector);
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
+function upsertCanonicalLink(href: string) {
+  let element = document.head.querySelector('link[rel="canonical"]');
+
+  if (!element) {
+    element = document.createElement('link');
+    element.setAttribute('rel', 'canonical');
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('href', href);
+}
+
+function upsertStructuredData(id: string, payload: unknown) {
+  let element = document.getElementById(id);
+
+  if (!element) {
+    element = document.createElement('script');
+    element.setAttribute('type', 'application/ld+json');
+    element.setAttribute('id', id);
+    document.head.appendChild(element);
+  }
+
+  element.textContent = JSON.stringify(payload);
+}
+
 const Navbar = ({
   activePage,
-  setPage,
+  navigateToPage,
 }: {
   activePage: Page;
-  setPage: (p: Page) => void;
+  navigateToPage: NavigateToPage;
 }) => (
   <header className="w-full top-0 sticky z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10">
     <nav className="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
-      <button
-        aria-label="Go to overview"
+      <PageLink
+        page="overview"
+        navigateToPage={navigateToPage}
+        ariaLabel="Go to overview"
         className="group inline-flex items-center"
-        onClick={() => setPage('overview')}
-        type="button"
       >
         <span className="font-sans text-xl font-bold tracking-tight text-primary transition-colors duration-300 group-hover:text-primary/85">
           WeDesign+
         </span>
-      </button>
+      </PageLink>
       <div className="hidden md:flex space-x-8">
         {NAV_PAGES.map((page) => (
-          <button
+          <PageLink
             key={page}
-            onClick={() => setPage(page)}
+            page={page}
+            navigateToPage={navigateToPage}
+            ariaCurrent={activePage === page ? 'page' : undefined}
             className={cn(
               'text-sm uppercase tracking-widest transition-all duration-300 pb-1',
               activePage === page
                 ? 'text-primary border-b-2 border-primary font-bold'
                 : 'text-stone-500 hover:text-primary',
             )}
-            type="button"
           >
             {PAGE_LABELS[page]}
-          </button>
+          </PageLink>
         ))}
       </div>
       <a
@@ -111,24 +344,25 @@ const Navbar = ({
     <div className="border-t border-outline-variant/10 px-8 pb-4 md:hidden">
       <div className="mx-auto flex max-w-[1440px] items-center gap-5 overflow-x-auto pt-4">
         {NAV_PAGES.map((page) => (
-          <button
+          <PageLink
             key={page}
-            onClick={() => setPage(page)}
+            page={page}
+            navigateToPage={navigateToPage}
+            ariaCurrent={activePage === page ? 'page' : undefined}
             className={cn(
               'shrink-0 text-xs uppercase tracking-[0.24em] transition-colors duration-300',
               activePage === page ? 'text-primary font-bold' : 'text-stone-500',
             )}
-            type="button"
           >
             {PAGE_LABELS[page]}
-          </button>
+          </PageLink>
         ))}
       </div>
     </div>
   </header>
 );
 
-const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
+const Footer = ({ navigateToPage }: { navigateToPage: NavigateToPage }) => (
   <footer className="w-full border-t border-outline-variant/20 bg-surface-container-highest mt-24">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16 w-full max-w-[1440px] mx-auto">
       <div className="space-y-6">
@@ -143,14 +377,14 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
           Explore
         </span>
         {NAV_PAGES.map((page) => (
-          <button
+          <PageLink
             key={page}
+            page={page}
+            navigateToPage={navigateToPage}
             className="text-left text-stone-600 text-xs uppercase tracking-tighter hover:text-primary transition-all"
-            onClick={() => setPage(page)}
-            type="button"
           >
             {PAGE_LABELS[page]}
-          </button>
+          </PageLink>
         ))}
       </div>
       <div className="space-y-4">
@@ -175,7 +409,11 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
   </footer>
 );
 
-const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
+const OverviewPage = ({
+  navigateToPage,
+}: {
+  navigateToPage: NavigateToPage;
+}) => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
     <section className="pt-24 pb-32 max-w-[1440px] mx-auto px-8">
       <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-12 lg:gap-16">
@@ -189,16 +427,16 @@ const OverviewPage = ({ setPage }: { setPage: (p: Page) => void }) => (
             consensus. We bridge the gap between policy and people.
           </p>
           <div className="mt-16 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-            <button
+            <PageLink
+              page="pilot"
+              navigateToPage={navigateToPage}
               className="flex items-center space-x-3 text-stone-600 group"
-              onClick={() => setPage('pilot')}
-              type="button"
             >
               <PlayCircle className="text-3xl" />
               <span className="font-sans text-sm uppercase tracking-widest group-hover:text-primary transition-colors">
                 See the Pilot
               </span>
-            </button>
+            </PageLink>
           </div>
         </div>
         <div className="lg:col-span-5">
@@ -726,19 +964,21 @@ const ResearchPage = () => (
 );
 
 export default function App() {
-  const [page, setPage] = useState<Page>('overview');
+  const { page, navigateToPage } = usePageRouting();
+
+  useSeo(page);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar activePage={page} setPage={setPage} />
+      <Navbar activePage={page} navigateToPage={navigateToPage} />
       <main className="flex-1">
         <AnimatePresence mode="wait">
-          {page === 'overview' && <OverviewPage setPage={setPage} />}
+          {page === 'overview' && <OverviewPage navigateToPage={navigateToPage} />}
           {page === 'pilot' && <PilotPage />}
           {page === 'research' && <ResearchPage />}
         </AnimatePresence>
       </main>
-      <Footer setPage={setPage} />
+      <Footer navigateToPage={navigateToPage} />
     </div>
   );
 }

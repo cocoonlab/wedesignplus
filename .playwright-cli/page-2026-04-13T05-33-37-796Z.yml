@@ -1,0 +1,105 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Go to overview" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: WeDesign+
+      - generic [ref=e8]:
+        - link "Overview" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Pilot" [ref=e10] [cursor=pointer]:
+          - /url: /pilot
+        - link "Research" [ref=e11] [cursor=pointer]:
+          - /url: /research
+      - link "Studio Inquiries Email Rashid rashid@cocoonlab.ai" [ref=e12] [cursor=pointer]:
+        - /url: mailto:rashid@cocoonlab.ai?subject=WeDesign%2B%20Studio%20inquiry&body=Hi%20Rashid%2C%0A%0AI'd%20love%20to%20learn%20more%20about%20WeDesign%2B%20Studio.%0A%0ABest%2C%0A
+        - generic [ref=e13]: Studio Inquiries
+        - generic [ref=e14]:
+          - text: Email Rashid
+          - img [ref=e15]
+        - generic [ref=e18]: rashid@cocoonlab.ai
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - heading "Built with communities, grounded in research." [level=1] [ref=e24]
+          - paragraph [ref=e26]: Our methodology bridges the gap between large-scale data and hyper-local nuance. By structuring disagreement, we find the path to collective progress.
+        - figure "Dataset Creation Workshop Research artifacts came from real sessions, not synthetic proxy behavior." [ref=e27]:
+          - img "Workshop session used for dataset creation and evaluation" [ref=e29]
+          - generic [ref=e30]:
+            - text: Dataset Creation Workshop
+            - paragraph [ref=e31]: Research artifacts came from real sessions, not synthetic proxy behavior.
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: Community Evaluation
+            - heading "Alignment Gains through Iteration" [level=2] [ref=e36]
+          - generic [ref=e37]:
+            - generic [ref=e39]:
+              - generic [ref=e40]: Baseline Sentiment
+              - generic [ref=e41]: 40%
+            - generic [ref=e45]:
+              - generic [ref=e46]: Post-Consultation Alignment
+              - generic [ref=e47]: 90%
+        - generic [ref=e50]:
+          - generic [ref=e51]: Identity Matrix
+          - heading "Participant Diversity" [level=2] [ref=e52]
+          - generic [ref=e75]:
+            - generic [ref=e76]: Representation Index
+            - generic [ref=e77]: "0.9"
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - heading "Academic Foundation" [level=2] [ref=e80]
+          - link "Access Mid-Space Dataset" [ref=e82] [cursor=pointer]:
+            - /url: https://huggingface.co/datasets/CUPUM/mid-space
+            - text: Access Mid-Space Dataset
+            - img [ref=e83]
+        - generic [ref=e86]:
+          - 'link "Conference / 2025 LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces Introducing the Local Intersectional Visual Spaces (LIVS) dataset, a benchmark for multi-criteria alignment developed through a two-year participatory process. Open Access" [ref=e87] [cursor=pointer]':
+            - /url: https://proceedings.mlr.press/v267/mushkani25a.html
+            - generic [ref=e89]: Conference / 2025
+            - generic [ref=e90]:
+              - 'heading "LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces" [level=3] [ref=e91]'
+              - paragraph [ref=e92]: Introducing the Local Intersectional Visual Spaces (LIVS) dataset, a benchmark for multi-criteria alignment developed through a two-year participatory process.
+            - generic [ref=e93]:
+              - generic [ref=e94]: Open Access
+              - img [ref=e95]
+          - 'link "Journal / 2025 WeDesign: Generative AI-Facilitated Community Consultations for Urban Public Space Design Examining how generative text-to-image methods integrated into the WeDesign platform support equitable consultations and iterative dialogue. Open Access" [ref=e98] [cursor=pointer]':
+            - /url: https://arxiv.org/abs/2508.19256
+            - generic [ref=e100]: Journal / 2025
+            - generic [ref=e101]:
+              - 'heading "WeDesign: Generative AI-Facilitated Community Consultations for Urban Public Space Design" [level=3] [ref=e102]'
+              - paragraph [ref=e103]: Examining how generative text-to-image methods integrated into the WeDesign platform support equitable consultations and iterative dialogue.
+            - generic [ref=e104]:
+              - generic [ref=e105]: Open Access
+              - img [ref=e106]
+          - 'link "Conference / 2025 Co-Producing AI: Toward an Augmented, Participatory Lifecycle A fundamental re-architecture of the AI production pipeline centering co-production, diversity, and multidisciplinary collaboration. Open Access" [ref=e109] [cursor=pointer]':
+            - /url: https://arxiv.org/abs/2508.00138
+            - generic [ref=e111]: Conference / 2025
+            - generic [ref=e112]:
+              - 'heading "Co-Producing AI: Toward an Augmented, Participatory Lifecycle" [level=3] [ref=e113]'
+              - paragraph [ref=e114]: A fundamental re-architecture of the AI production pipeline centering co-production, diversity, and multidisciplinary collaboration.
+            - generic [ref=e115]:
+              - generic [ref=e116]: Open Access
+              - img [ref=e117]
+  - contentinfo [ref=e120]:
+    - generic [ref=e121]:
+      - generic [ref=e122]:
+        - img [ref=e123]
+        - paragraph [ref=e124]: Civic technology for the next generation of participatory urban design. Rebuilding trust through radical visual transparency.
+      - generic [ref=e125]:
+        - generic [ref=e126]: Explore
+        - link "Overview" [ref=e127] [cursor=pointer]:
+          - /url: /
+        - link "Pilot" [ref=e128] [cursor=pointer]:
+          - /url: /pilot
+        - link "Research" [ref=e129] [cursor=pointer]:
+          - /url: /research
+      - generic [ref=e130]:
+        - generic [ref=e131]: Contact
+        - link "Email Rashid" [ref=e132] [cursor=pointer]:
+          - /url: mailto:rashid@cocoonlab.ai?subject=WeDesign%2B%20Studio%20inquiry&body=Hi%20Rashid%2C%0A%0AI'd%20love%20to%20learn%20more%20about%20WeDesign%2B%20Studio.%0A%0ABest%2C%0A
+          - text: Email Rashid
+          - img [ref=e133]
+        - paragraph [ref=e136]: For studio walkthroughs, pilot briefings, and collaboration inquiries.
+        - paragraph [ref=e137]: © 2026 WeDesign+ Civic Consultation. Montreal, QC.

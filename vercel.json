@@ -3,6 +3,34 @@
   "cleanUrls": true,
   "outputDirectory": "dist",
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "wedesignplus.vercel.app"
+        }
+      ],
+      "destination": "https://www.wedesign.plus/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/overview",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/pilot",
+      "destination": "/"
+    },
+    {
+      "source": "/research",
+      "destination": "/"
+    }
+  ],
   "functions": {
     "api/*.ts": {
       "maxDuration": 30

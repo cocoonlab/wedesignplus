@@ -1,0 +1,94 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Go to overview" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: WeDesign+
+      - generic [ref=e8]:
+        - link "Overview" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Pilot" [ref=e10] [cursor=pointer]:
+          - /url: /pilot
+        - link "Research" [ref=e11] [cursor=pointer]:
+          - /url: /research
+      - link "Studio Inquiries Email Rashid rashid@cocoonlab.ai" [ref=e12] [cursor=pointer]:
+        - /url: mailto:rashid@cocoonlab.ai?subject=WeDesign%2B%20Studio%20inquiry&body=Hi%20Rashid%2C%0A%0AI'd%20love%20to%20learn%20more%20about%20WeDesign%2B%20Studio.%0A%0ABest%2C%0A
+        - generic [ref=e13]: Studio Inquiries
+        - generic [ref=e14]:
+          - text: Email Rashid
+          - img [ref=e15]
+        - generic [ref=e18]: rashid@cocoonlab.ai
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - 'heading "Pilot: Sainte-Marie (2025)" [level=1] [ref=e24]'
+          - paragraph [ref=e25]: From first input to shared direction in one workshop cycle. A documentary exploration of civic alignment in Montreal's historic district.
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]: Location
+            - text: Sainte-Marie, Montreal, QC
+          - generic [ref=e30]:
+            - generic [ref=e31]: Participants
+            - text: 142 Registered
+          - generic [ref=e32]:
+            - generic [ref=e33]: Duration
+            - text: 2 days
+      - img "WeDesign+ pilot demo visual" [ref=e36]
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - heading "The Human Perspective." [level=2] [ref=e39]:
+            - text: The Human
+            - text: Perspective.
+          - blockquote [ref=e41]: "\"For the first time, I didn't feel like I was filling out a form. I felt like I was contributing to a story that actually had an ending we all agreed on.\""
+          - text: "- PILOT PARTICIPANT"
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: The Sainte-Marie pilot was designed to test the limits of compressed civic consultation. Traditional methods often stretch across months, leading to participant fatigue and data dilution. WeDesign+ implemented a singular, high-intensity workshop cycle that bridged the gap between abstract planning and local reality.
+            - paragraph [ref=e45]: Using the WeDesign+ Studio environment, residents could visualize proposals in real time, discuss their needs, and refine their aspirations accordingly.
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]:
+                - text: Live Concept Variants
+                - heading "Three directions reviewed in the same session." [level=3] [ref=e49]
+              - paragraph [ref=e50]: Generated options helped the group compare trade-offs without waiting weeks for revised drawings.
+            - generic [ref=e51]:
+              - figure "Iteration 01 Reviewed live Opening scenario used to spark discussion in the room." [ref=e52]:
+                - img "Pilot concept iteration 01" [ref=e54]
+                - generic [ref=e55]:
+                  - generic [ref=e56]:
+                    - generic [ref=e57]: Iteration 01
+                    - generic [ref=e58]: Reviewed live
+                  - paragraph [ref=e59]: Opening scenario used to spark discussion in the room.
+              - generic [ref=e62]:
+                - figure "Iteration 02 Refined live as residents reacted to density and greening trade-offs." [ref=e63]:
+                  - img "Pilot concept iteration 02" [ref=e65]
+                  - generic [ref=e66]:
+                    - text: Iteration 02
+                    - paragraph [ref=e67]: Refined live as residents reacted to density and greening trade-offs.
+                - figure "Iteration 03 Later-round option tested against the priorities participants shared." [ref=e68]:
+                  - img "Pilot concept iteration 03" [ref=e70]
+                  - generic [ref=e71]:
+                    - text: Iteration 03
+                    - paragraph [ref=e72]: Later-round option tested against the priorities participants shared.
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - img [ref=e76]
+        - paragraph [ref=e77]: Civic technology for the next generation of participatory urban design. Rebuilding trust through radical visual transparency.
+      - generic [ref=e78]:
+        - generic [ref=e79]: Explore
+        - link "Overview" [ref=e80] [cursor=pointer]:
+          - /url: /
+        - link "Pilot" [ref=e81] [cursor=pointer]:
+          - /url: /pilot
+        - link "Research" [ref=e82] [cursor=pointer]:
+          - /url: /research
+      - generic [ref=e83]:
+        - generic [ref=e84]: Contact
+        - link "Email Rashid" [ref=e85] [cursor=pointer]:
+          - /url: mailto:rashid@cocoonlab.ai?subject=WeDesign%2B%20Studio%20inquiry&body=Hi%20Rashid%2C%0A%0AI'd%20love%20to%20learn%20more%20about%20WeDesign%2B%20Studio.%0A%0ABest%2C%0A
+          - text: Email Rashid
+          - img [ref=e86]
+        - paragraph [ref=e89]: For studio walkthroughs, pilot briefings, and collaboration inquiries.
+        - paragraph [ref=e90]: © 2026 WeDesign+ Civic Consultation. Montreal, QC.
