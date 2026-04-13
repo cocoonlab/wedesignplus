@@ -10,6 +10,7 @@ import splashLogo from './assets/brand/splash.png';
 import overviewDescribeImage from './assets/pages/overview/typing-needs.jpg';
 import overviewHeroConsultationImage from './assets/pages/overview/live-consultation.jpg';
 import overviewExistingSiteImage from './assets/pages/overview/existing-site.jpg';
+import overviewRiskImage from './assets/pages/overview/risk.jpg';
 import pilotDemoGif from './assets/pages/pilot/demo-wedesign.gif';
 import pilotConsultationVideo from './assets/pages/pilot/wedesign-cdc-consultation.mp4';
 import pilotGeneratedDesign1 from './assets/pages/pilot/generated-design-1.png';
@@ -522,25 +523,13 @@ const OverviewPage = ({
             Gap&quot; leads to project friction, community resentment, and lost
             trust.
           </p>
-          <div className="rounded-xl border border-outline-variant/10 bg-white p-8 shadow-sm sm:p-10 md:p-12">
-            <div className="flex items-end justify-between h-48 space-x-4 mb-6">
-              <div className="w-full bg-surface-container-high h-[20%] transition-all relative group">
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-sans uppercase">
-                  Early Concept
-                </div>
-              </div>
-              <div className="w-full bg-surface-container-high h-[45%] transition-all" />
-              <div className="w-full bg-primary/40 h-[75%] transition-all" />
-              <div className="w-full bg-red-600 h-[100%] transition-all relative group">
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-[10px] font-sans text-red-600 font-bold uppercase whitespace-nowrap">
-                  Max Conflict Risk
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-between font-sans text-[10px] uppercase tracking-widest text-stone-500">
-              <span>Stage 1: Ideation</span>
-              <span>Stage 4: Implementation</span>
-            </div>
+          <div className="overflow-hidden rounded-xl border border-outline-variant/10 bg-white shadow-sm">
+            <img
+              className="h-auto w-full object-cover"
+              src={overviewRiskImage}
+              alt="Risk of abstract consultation visual"
+              loading="lazy"
+            />
           </div>
         </div>
         <div className="space-y-4">
