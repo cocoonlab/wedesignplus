@@ -33,7 +33,7 @@ import {
 } from './lib/site';
 
 const NAV_PAGES: Page[] = ['overview', 'pilot', 'research', 'about'];
-const CONTACT_EMAIL = 'rashid@cocoonlab.ai';
+const CONTACT_EMAIL = 'rashidmushkani@gmail.com';
 const AIAI_URL =
   'https://mila.quebec/en/ai4humanity/applied-projects/artificial-intelligence-alignment-for-inclusion-aiai';
 const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
