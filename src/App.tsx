@@ -25,6 +25,7 @@ import {
   PAGE_LABELS,
   SITE_ALTERNATE_NAMES,
   SITE_CREATOR,
+  SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
   SITE_ORIGIN,
@@ -231,9 +232,6 @@ function useSeo(page: Page) {
     }
 
     const metadata = getPageMetadata(page);
-    const siteDescription =
-      'WeDesign+ helps communities compare civic design directions through visual consultation, live concept generation, and research-led public participation.';
-
     document.title = metadata.title;
     document.documentElement.lang = 'en-CA';
 
@@ -273,9 +271,10 @@ function useSeo(page: Page) {
         name: SITE_NAME,
         alternateName: [...SITE_ALTERNATE_NAMES],
         url: `${SITE_ORIGIN}/`,
-        description: siteDescription,
+        description: SITE_DESCRIPTION,
         email: `mailto:${CONTACT_EMAIL}`,
-        logo: `${SITE_ORIGIN}/apple-touch-icon.png`,
+        logo: `${SITE_ORIGIN}/favicon-48x48.png`,
+        image: `${SITE_ORIGIN}/social-preview.jpg`,
         founder: {
           '@id': `${SITE_ORIGIN}/about#rashid-mushkani`,
         },
@@ -317,7 +316,7 @@ function useSeo(page: Page) {
         name: SITE_NAME,
         alternateName: [...SITE_ALTERNATE_NAMES],
         url: `${SITE_ORIGIN}/`,
-        description: siteDescription,
+        description: SITE_DESCRIPTION,
         keywords: SITE_KEYWORDS,
         publisher: {
           '@id': `${SITE_ORIGIN}/#organization`,
@@ -504,6 +503,10 @@ const Footer = ({ navigateToPage }: { navigateToPage: NavigateToPage }) => (
         <p className="font-sans text-xs uppercase tracking-tighter text-stone-600">
           © 2026 WeDesign+ Civic Consultation. Montreal, QC.
         </p>
+        <p className="font-sans text-xs leading-relaxed text-stone-600 max-w-xs">
+          Also referenced as WeDesign, WeDesign Plus, WeDesignPlus, and
+          wedesignplus.
+        </p>
       </div>
     </div>
   </footer>
@@ -519,7 +522,7 @@ const OverviewPage = ({
       <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="asymmetric-header max-w-4xl lg:col-span-7">
           <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl italic font-light text-stone-900 leading-tight">
-            Visual public consultations{' '}
+            WeDesign+ visual public consultations{' '}
             <span className="text-primary">shaped by local values.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-xl font-serif font-light leading-relaxed text-stone-600 sm:mt-10 sm:text-2xl md:mt-12 md:text-3xl">

@@ -1,0 +1,27 @@
+{
+  "name": "WeDesign+",
+  "short_name": "WeDesign+",
+  "description": "WeDesign+ by Rashid Mushkani helps communities align around civic design decisions through visual public consultation.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F7",
+  "theme_color": "#715574",
+  "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "1021x1021",
+      "type": "image/png"
+    }
+  ]
+}

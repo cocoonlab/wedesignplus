@@ -5,11 +5,19 @@ export const SITE_CREATOR = 'Rashid Mushkani';
 export const SITE_ALTERNATE_NAMES = [
   'WeDesign',
   'WeDesign+',
+  'WeDesign Plus',
+  'WeDesignPlus',
+  'WeDesignplus',
   'wedesign',
   'wedesign+',
+  'wedesign plus',
+  'wedesignplus',
+  'wedesign.plus',
 ] as const;
+export const SITE_DESCRIPTION =
+  'WeDesign+ by Rashid Mushkani helps communities align around civic design decisions through visual public consultation, rapid concept comparison, and participatory urban dialogue.';
 export const SITE_KEYWORDS =
-  'WeDesign+, WeDesign, wedesign, wedesign+, Rashid Mushkani, visual public consultation, civic consultation, participatory urban design, inclusive AI';
+  'WeDesign+, WeDesign, WeDesign Plus, WeDesignPlus, WeDesignplus, wedesign, wedesign+, wedesign plus, wedesignplus, wedesign.plus, Rashid Mushkani, visual public consultation, civic consultation, community consultation, public consultation design, civic design, participatory urban design, urban design consultation, inclusive AI';
 export const SITE_TITLE_SUFFIX = `Visual Public Consultations by ${SITE_CREATOR}`;
 export const DEFAULT_SITE_URL = 'https://www.wedesign.plus';
 export const SITE_ORIGIN = normalizeOrigin(
@@ -52,10 +60,8 @@ const PAGE_DETAILS: Record<
   overview: {
     shortTitle: 'Overview',
     title: 'WeDesign+ by Rashid Mushkani | Visual Public Consultations',
-    description:
-      'WeDesign+ by Rashid Mushkani helps communities align around civic design decisions through visual public consultation, rapid concept comparison, and participatory urban dialogue.',
-    keywords:
-      'WeDesign+, WeDesign, wedesign, wedesign+, Rashid Mushkani, visual public consultation, civic consultation, participatory urban design, inclusive AI',
+    description: SITE_DESCRIPTION,
+    keywords: SITE_KEYWORDS,
   },
   pilot: {
     shortTitle: 'Pilot: Sainte-Marie',
