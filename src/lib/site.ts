@@ -13,12 +13,14 @@ export const SITE_ALTERNATE_NAMES = [
   'wedesign plus',
   'wedesignplus',
   'wedesign.plus',
+  'WeDesign civic consultation',
+  'wedesign civic consultation',
 ] as const;
 export const SITE_DESCRIPTION =
-  'WeDesign+ by Rashid Mushkani helps communities align around civic design decisions through visual public consultation, rapid concept comparison, and participatory urban dialogue.';
+  'WeDesign+, also known as WeDesign, helps communities align around civic design decisions through visual public consultation, rapid concept comparison, and participatory urban dialogue.';
 export const SITE_KEYWORDS =
-  'WeDesign+, WeDesign, WeDesign Plus, WeDesignPlus, WeDesignplus, wedesign, wedesign+, wedesign plus, wedesignplus, wedesign.plus, Rashid Mushkani, visual public consultation, civic consultation, community consultation, public consultation design, civic design, participatory urban design, urban design consultation, inclusive AI';
-export const SITE_TITLE_SUFFIX = `Visual Public Consultations by ${SITE_CREATOR}`;
+  'WeDesign+, WeDesign, wedesign, WeDesign Plus, WeDesignPlus, WeDesignplus, wedesign+, wedesign plus, wedesignplus, wedesign.plus, WeDesign civic consultation, wedesign civic consultation, Rashid Mushkani, visual public consultation, civic consultation, community consultation, public consultation design, civic design, participatory urban design, urban design consultation, inclusive AI';
+export const SITE_TITLE_SUFFIX = 'Visual Public Consultations';
 export const DEFAULT_SITE_URL = 'https://www.wedesign.plus';
 export const SITE_ORIGIN = normalizeOrigin(
   import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL,
@@ -59,7 +61,7 @@ const PAGE_DETAILS: Record<
 > = {
   overview: {
     shortTitle: 'Overview',
-    title: 'WeDesign+ by Rashid Mushkani | Visual Public Consultations',
+    title: 'WeDesign+ (WeDesign) | Visual Public Consultations',
     description: SITE_DESCRIPTION,
     keywords: SITE_KEYWORDS,
   },
@@ -79,9 +81,9 @@ const PAGE_DETAILS: Record<
   },
   about: {
     shortTitle: 'About',
-    title: 'About WeDesign+ and Rashid Mushkani | WeDesign+',
+    title: 'About WeDesign+ | Civic Consultation Research',
     description:
-      'Learn how WeDesign+ and Rashid Mushkani build on AI Alignment for Inclusion (AIAI), bringing together urban design, public participation, and responsible AI to support more inclusive public-space consultation.',
+      'Learn how WeDesign+ builds on AI Alignment for Inclusion (AIAI), bringing together urban design, public participation, and responsible AI to support more inclusive public-space consultation.',
     keywords:
       'Rashid Mushkani, WeDesign+, WeDesign, wedesign, AIAI, AI Alignment for Inclusion, public participation, responsible AI, inclusive public space',
   },

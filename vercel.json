@@ -19,6 +19,21 @@
       "source": "/overview",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/wedesign",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wedesignplus",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wedesign-plus",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

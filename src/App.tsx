@@ -286,9 +286,9 @@ function useSeo(page: Page) {
         '@id': `${SITE_ORIGIN}/about#rashid-mushkani`,
         name: SITE_CREATOR,
         url: `${SITE_ORIGIN}/about`,
-        jobTitle: 'Researcher and creator of WeDesign+',
+        jobTitle: 'Researcher in participatory civic design',
         description:
-          'Rashid Mushkani is the creator of WeDesign+, working at the intersection of urban design, public participation, and inclusive AI.',
+          'Rashid Mushkani works at the intersection of urban design, public participation, and inclusive AI.',
         worksFor: {
           '@id': `${SITE_ORIGIN}/#organization`,
         },
@@ -405,7 +405,7 @@ const Navbar = ({
       <PageLink
         page="overview"
         navigateToPage={navigateToPage}
-        ariaLabel="Go to overview"
+        ariaLabel="WeDesign+ home"
         className="group inline-flex items-center"
       >
         <span className="font-sans text-xl font-bold tracking-tight text-primary transition-colors duration-300 group-hover:text-primary/85">
@@ -504,8 +504,8 @@ const Footer = ({ navigateToPage }: { navigateToPage: NavigateToPage }) => (
           © 2026 WeDesign+ Civic Consultation. Montreal, QC.
         </p>
         <p className="font-sans text-xs leading-relaxed text-stone-600 max-w-xs">
-          Also referenced as WeDesign, WeDesign Plus, WeDesignPlus, and
-          wedesignplus.
+          Also referenced as WeDesign, wedesign, WeDesign Plus, WeDesignPlus,
+          and wedesignplus.
         </p>
       </div>
     </div>
@@ -521,6 +521,9 @@ const OverviewPage = ({
     <section className="max-w-[1440px] mx-auto px-5 pt-16 pb-20 sm:px-8 sm:pt-20 sm:pb-24 md:pb-32 lg:pt-24">
       <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="asymmetric-header max-w-4xl lg:col-span-7">
+          <span className="mb-5 block font-sans text-xs uppercase tracking-[0.28em] text-primary">
+            WeDesign+ / WeDesign / wedesign.plus
+          </span>
           <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl italic font-light text-stone-900 leading-tight">
             WeDesign+ visual public consultations{' '}
             <span className="text-primary">shaped by local values.</span>
