@@ -503,10 +503,6 @@ const Footer = ({ navigateToPage }: { navigateToPage: NavigateToPage }) => (
         <p className="font-sans text-xs uppercase tracking-tighter text-stone-600">
           © 2026 WeDesign+ Civic Consultation. Montreal, QC.
         </p>
-        <p className="font-sans text-xs leading-relaxed text-stone-600 max-w-xs">
-          Also referenced as WeDesign, wedesign, WeDesign Plus, WeDesignPlus,
-          and wedesignplus.
-        </p>
       </div>
     </div>
   </footer>
